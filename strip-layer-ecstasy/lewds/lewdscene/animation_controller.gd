@@ -1,0 +1,97 @@
+extends Node2D
+
+@onready var spine: SpineSprite = $SpineSprite
+@onready var click_spot_top: Area2D = $ClickSpotTop
+@onready var click_spot_bottom: Area2D = $ClickSpotBottom
+@onready var progress_bar: ProgressBar = $ProgressBar
+@onready var layer_label: Label = $ProgressBar/Label
+
+var strip_level: int = 0
+const MAX_LEVELS: int = 4
+const CLICKS_NEEDED: int = 20
+const DAMAGE_PER_CLICK: float = 100.0 / CLICKS_NEEDED
+var is_stripping: bool = false
+
+func _ready():
+	# Connect all Area2D nodes
+	click_spot_top.input_event.connect(_on_click_spot.bind("top"))
+	click_spot_bottom.input_event.connect(_on_click_spot.bind("bottom"))
+	
+	reset_layer()
+	update_ui()
+	update_click_areas()
+
+func reset_layer():
+	progress_bar.value = 100.0
+	play_idle()
+	is_stripping = false
+	update_click_areas()
+
+func update_click_areas():
+	# Show/hide and reposition Area2D nodes based on current strip level
+	match strip_level:
+		0:  # First layer - click top
+			click_spot_top.visible = true
+			click_spot_bottom.visible = false
+			
+			
+		1:  # Second layer - click mid
+			click_spot_top.visible = false
+			click_spot_bottom.visible = true
+			
+			
+		2:  # Third layer - click bottom
+			click_spot_top.visible = true
+			click_spot_bottom.visible = false
+			
+			
+		3:  # Final layer - any area
+			click_spot_top.visible = false
+			click_spot_bottom.visible = true
+
+func play_idle():
+	var anim_name: String = "pose%d" % (strip_level + 1)
+	spine.get_animation_state().set_animation(anim_name, true, 0)
+	is_stripping = false
+	update_click_areas()
+
+func trigger_strip():
+	var anim_name: String = "pose%d_stripping" % (strip_level + 1)
+	spine.get_animation_state().set_animation(anim_name, false, 0)
+	is_stripping = true
+	# Hide all click areas during stripping
+	click_spot_top.visible = false
+	click_spot_bottom.visible = false
+
+func _on_click_spot(viewport: Node, event: InputEvent, shape_idx: int, area_type: String):
+	if is_stripping:
+		return
+	
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		# Optional: Different damage based on area type
+		var damage_multiplier = 1.0
+		match area_type:
+			"top": damage_multiplier = 1.0
+			"mid": damage_multiplier = 1.0
+			"bottom": damage_multiplier = 1.0
+		
+		progress_bar.value -= DAMAGE_PER_CLICK * damage_multiplier
+		update_ui()
+		
+		if progress_bar.value <= 0.0:
+			trigger_strip()
+
+func update_ui():
+	layer_label.text = "Layer %d/4\n%.0f%%" % [strip_level + 1, progress_bar.value]
+
+func _on_spine_sprite_animation_completed(spine_sprite: Object, animation_state: Object, track_entry: Object) -> void:
+	var anim_name: String = track_entry.get_animation().get_name()
+	if anim_name.contains("_stripping"):
+		strip_level += 1
+		if strip_level >= MAX_LEVELS:
+			play_idle()  # Loops pose4 idle forever
+			progress_bar.visible = false
+			layer_label.text = "Complete! 🔥"
+			print("Fully stripped! Gallery unlocked 🎉")
+		else:
+			reset_layer()  # Next pose idle + full bar

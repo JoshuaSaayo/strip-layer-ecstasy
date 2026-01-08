@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://crnn83yfn3afv" path="res://lewds/lewdscene/animation_controller.gd" id="1_vwvpl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ji06"]
-size = Vector2(171, 85)
+size = Vector2(171, 50)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vwvpl"]
 bg_color = Color(0, 0.7069172, 0.51335526, 1)
@@ -13,33 +13,24 @@ bg_color = Color(0, 0.7069172, 0.51335526, 1)
 script = ExtResource("1_vwvpl")
 
 [node name="SpineSprite" type="SpineSprite" parent="."]
-position = Vector2(-74, 1.0000038)
-scale = Vector2(1.0786303, 1.0786303)
 skeleton_data_res = ExtResource("1_0ji06")
 preview_skin = "Default"
 preview_animation = "-- Empty --"
 preview_frame = false
 preview_time = 0.0
 
-[node name="ClickSpotTop" type="Area2D" parent="."]
-position = Vector2(718, 286)
+[node name="ClickSpot" type="Area2D" parent="."]
+position = Vector2(723, 263)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickSpotTop"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickSpot"]
 position = Vector2(-47, 6)
 shape = SubResource("RectangleShape2D_0ji06")
 
-[node name="ClickSpotBottom" type="Area2D" parent="."]
-position = Vector2(592, 475)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickSpotBottom"]
-position = Vector2(-47, 23.5)
-shape = SubResource("RectangleShape2D_0ji06")
-
 [node name="ProgressBar" type="ProgressBar" parent="."]
-offset_left = 785.99347
-offset_top = 312.0
-offset_right = 885.99347
-offset_bottom = 335.0
+offset_left = 786.0
+offset_top = 254.0
+offset_right = 886.0
+offset_bottom = 277.0
 theme_override_styles/background = SubResource("StyleBoxFlat_vwvpl")
 value = 50.0
 
@@ -50,6 +41,3 @@ offset_top = 1.0
 offset_right = 158.0
 offset_bottom = 24.0
 text = "20/20"
-
-[connection signal="animation_completed" from="SpineSprite" to="." method="_on_spine_sprite_animation_completed"]
-[connection signal="animation_ended" from="SpineSprite" to="." method="_on_spine_sprite_animation_ended"]

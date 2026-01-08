@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://dgpjssbw6brxh"
+path="res://.godot/imported/yuri_strip.atlas-c8efe5dbcca3a54ee88a794f91c7ff34.spatlas"
+
+[deps]
+
+source_file="res://lewds/lewd_assets/yuri_strip/yuri_strip.atlas"
+dest_files=["res://.godot/imported/yuri_strip.atlas-c8efe5dbcca3a54ee88a794f91c7ff34.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"
