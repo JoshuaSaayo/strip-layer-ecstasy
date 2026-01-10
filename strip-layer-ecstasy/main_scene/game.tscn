@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://6nq16miftley"]
+[gd_scene load_steps=3 format=3 uid="uid://6nq16miftley"]
 
 [ext_resource type="PackedScene" uid="uid://d2kmpgdjyrexx" path="res://lewds/lewdscene/yuri_strip.tscn" id="1_kffg0"]
+[ext_resource type="AudioStream" uid="uid://c6welw77cs7pm" path="res://UI/sounds/background_ost.wav" id="2_swm8w"]
 
 [node name="game" type="Node2D"]
 
@@ -8,3 +9,7 @@
 
 [node name="yuri_strip" parent="CharacterStrip" instance=ExtResource("1_kffg0")]
 position = Vector2(44, 42)
+
+[node name="Background" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_swm8w")
+autoplay = true

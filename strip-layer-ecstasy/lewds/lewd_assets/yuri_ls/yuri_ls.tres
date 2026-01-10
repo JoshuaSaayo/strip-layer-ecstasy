@@ -1,0 +1,11 @@
+[gd_resource type="SpineSkeletonDataResource" load_steps=3 format=3 uid="uid://cogurb4k2jmty"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tjurt"]
+load_path = "res://.godot/imported/yuri_ls.png-9501fb758c8b8c1e8bac5e8427abd19a.ctex"
+
+[sub_resource type="SpineAtlasResource" id="SpineAtlasResource_bv31b"]
+source_path = "res://lewds/lewd_assets/yuri_ls/yuri_ls.atlas"
+textures = [SubResource("CompressedTexture2D_tjurt")]
+
+[resource]
+atlas_res = SubResource("SpineAtlasResource_bv31b")
