@@ -86,12 +86,19 @@ func update_ui():
 
 func _on_spine_sprite_animation_completed(spine_sprite: Object, animation_state: Object, track_entry: Object) -> void:
 	var anim_name: String = track_entry.get_animation().get_name()
+	print("Animation ended: ", anim_name)  # Debug - keep this for now
+	
 	if anim_name.contains("_stripping"):
 		strip_level += 1
+		
 		if strip_level >= MAX_LEVELS:
-			play_idle()  # Loops pose4 idle forever
-			progress_bar.visible = false
-			layer_label.text = "Complete! 🔥"
-			print("Fully stripped! Gallery unlocked 🎉")
+			# Final stripping just finished → go to lewd reward scene!
+			# Option A: Change scene (recommended for full-screen lewd)
+			get_tree().change_scene_to_file("res://lewds/lewdscene/yuri_ls.tscn")  # ← Change this path!
+			
+			# Option B: If you prefer to instance it as overlay/child (keeps character visible)
+			# var lewd_scene = preload("res://LewdReward.tscn").instantiate()
+			# add_child(lewd_scene)
+			# lewd_scene.position = Vector2(0,0)  # or center it
 		else:
-			reset_layer()  # Next pose idle + full bar
+			reset_layer()  # Continue to next stripping layer

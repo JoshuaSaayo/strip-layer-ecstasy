@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxtdht36xkwys"]
+
+[ext_resource type="SpineSkeletonDataResource" uid="uid://cogurb4k2jmty" path="res://lewds/lewd_assets/yuri_ls/yuri_ls.tres" id="1_6c4g4"]
+[ext_resource type="Script" uid="uid://blrbda8l3lgq2" path="res://lewds/lewdscene/lewdscene_controller.gd" id="1_mc0xj"]
+
+[node name="yuri_ls" type="Node2D"]
+script = ExtResource("1_mc0xj")
+
+[node name="SpineSprite" type="SpineSprite" parent="."]
+skeleton_data_res = ExtResource("1_6c4g4")
+preview_skin = "Default"
+preview_animation = "-- Empty --"
+preview_frame = false
+preview_time = 0.0
+
+[node name="SFXMoan" type="AudioStreamPlayer" parent="."]
+
+[node name="SFXPlaps" type="AudioStreamPlayer" parent="."]
+
+[connection signal="animation_completed" from="SpineSprite" to="." method="_on_spine_sprite_animation_completed"]
+[connection signal="animation_event" from="SpineSprite" to="." method="_on_spine_sprite_animation_event"]

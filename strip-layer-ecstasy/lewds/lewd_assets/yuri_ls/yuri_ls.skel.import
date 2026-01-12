@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://dod3gqqp1wscm"
+path="res://.godot/imported/yuri_ls.skel-20a9ee0496f1437b9952fa2b78ba29c1.spskel"
+
+[deps]
+
+source_file="res://lewds/lewd_assets/yuri_ls/yuri_ls.skel"
+dest_files=["res://.godot/imported/yuri_ls.skel-20a9ee0496f1437b9952fa2b78ba29c1.spskel"]
+
+[params]
+

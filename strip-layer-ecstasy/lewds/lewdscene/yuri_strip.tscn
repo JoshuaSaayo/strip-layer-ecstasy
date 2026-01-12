@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://crnn83yfn3afv" path="res://lewds/lewdscene/animation_controller.gd" id="1_vwvpl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ji06"]
-size = Vector2(171, 85)
+size = Vector2(304, 177.5)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vwvpl"]
 bg_color = Color(0, 0.7069172, 0.51335526, 1)
@@ -25,7 +25,7 @@ preview_time = 0.0
 position = Vector2(718, 286)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ClickSpotTop"]
-position = Vector2(-47, 6)
+position = Vector2(-60, 26)
 shape = SubResource("RectangleShape2D_0ji06")
 
 [node name="ClickSpotBottom" type="Area2D" parent="."]

@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://cu7g36b20uy2s"
+path="res://.godot/imported/yuri_ls.atlas-f331d6c82459d583aa98860ec2f8662c.spatlas"
+
+[deps]
+
+source_file="res://lewds/lewd_assets/yuri_ls/yuri_ls.atlas"
+dest_files=["res://.godot/imported/yuri_ls.atlas-f331d6c82459d583aa98860ec2f8662c.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

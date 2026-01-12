@@ -1,11 +1,8 @@
 [gd_resource type="SpineSkeletonDataResource" load_steps=3 format=3 uid="uid://cogurb4k2jmty"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tjurt"]
-load_path = "res://.godot/imported/yuri_ls.png-9501fb758c8b8c1e8bac5e8427abd19a.ctex"
-
-[sub_resource type="SpineAtlasResource" id="SpineAtlasResource_bv31b"]
-source_path = "res://lewds/lewd_assets/yuri_ls/yuri_ls.atlas"
-textures = [SubResource("CompressedTexture2D_tjurt")]
+[ext_resource type="SpineAtlasResource" uid="uid://cu7g36b20uy2s" path="res://lewds/lewd_assets/yuri_ls/yuri_ls.atlas" id="1_7lfjf"]
+[ext_resource type="SpineSkeletonFileResource" uid="uid://dod3gqqp1wscm" path="res://lewds/lewd_assets/yuri_ls/yuri_ls.skel" id="2_md5iq"]
 
 [resource]
-atlas_res = SubResource("SpineAtlasResource_bv31b")
+atlas_res = ExtResource("1_7lfjf")
+skeleton_file_res = ExtResource("2_md5iq")
