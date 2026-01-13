@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://cbgkrnpa2ypg8"]
+[gd_scene load_steps=33 format=3 uid="uid://cbgkrnpa2ypg8"]
 
 [ext_resource type="Texture2D" uid="uid://bop6ua8in3swo" path="res://UI/assets/main_menu.png" id="1_0h2wq"]
 [ext_resource type="Script" uid="uid://cu8jiq8jr42pf" path="res://UI/menu.gd" id="1_kfjwn"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bt1ijjcxikv6m" path="res://UI/assets/Button_hover.png" id="4_dte3n"]
 [ext_resource type="Texture2D" uid="uid://c6dbddw3bc1e4" path="res://UI/assets/pause_panel.png" id="7_1qvof"]
 [ext_resource type="Texture2D" uid="uid://bh08bj38cadmk" path="res://UI/assets/credits_panel.png" id="7_dte3n"]
+[ext_resource type="AudioStream" uid="uid://ca230bnj23oal" path="res://UI/sounds/menu_ost.wav" id="7_wcfn6"]
 [ext_resource type="FontFile" uid="uid://b2lhiurb5m3t1" path="res://UI/fonts/Montserrat-ExtraBold.ttf" id="8_dhncy"]
 [ext_resource type="Texture2D" uid="uid://dt81ety56fask" path="res://UI/assets/pause_button.png" id="9_re817"]
 [ext_resource type="Texture2D" uid="uid://dvhrexhy8uufa" path="res://UI/assets/pause_button_hover.png" id="10_1qvof"]
@@ -223,6 +224,10 @@ text = "QUIT"
 [node name="Logo" type="Sprite2D" parent="."]
 position = Vector2(983, 127)
 texture = ExtResource("2_wfiwe")
+
+[node name="Background2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_wcfn6")
+autoplay = true
 
 [node name="Copyright" type="Label" parent="."]
 layout_mode = 1

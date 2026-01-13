@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://rpk4xt2f2qjp"]
+[gd_scene load_steps=8 format=3 uid="uid://rpk4xt2f2qjp"]
 
 [ext_resource type="Texture2D" uid="uid://bop6ua8in3swo" path="res://UI/assets/main_menu.png" id="1_cpqwh"]
+[ext_resource type="Script" uid="uid://cd4pk1woevddr" path="res://UI/ending_credits.gd" id="1_liubm"]
 [ext_resource type="FontFile" uid="uid://b2lhiurb5m3t1" path="res://UI/fonts/Montserrat-ExtraBold.ttf" id="2_wgxa4"]
 [ext_resource type="FontFile" uid="uid://b7vtyy4qnrm0v" path="res://UI/fonts/Montserrat-Regular.ttf" id="3_liubm"]
 
@@ -30,6 +31,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_liubm")
 
 [node name="MainMenu" type="Sprite2D" parent="."]
 position = Vector2(640, 360)
@@ -40,20 +42,23 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -3.0
-offset_right = -3.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.70980394)
 
-[node name="ThankYou" type="Label" parent="."]
+[node name="EndCredits" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ThankYou" type="Label" parent="EndCredits"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -102.0
+offset_left = 518.0
 offset_top = 30.0
-offset_right = 590.0
+offset_right = 1210.0
 offset_bottom = 157.0
 grow_horizontal = 2
 text = "THANK YOU FOR 
@@ -61,7 +66,7 @@ PLAYING MY GAME!"
 label_settings = SubResource("LabelSettings_wgxa4")
 horizontal_alignment = 2
 
-[node name="StayTuned" type="Label" parent="."]
+[node name="StayTuned" type="Label" parent="EndCredits"]
 layout_mode = 1
 offset_left = 854.0
 offset_top = 177.0
@@ -71,7 +76,7 @@ text = "Stay tuned for updates!"
 label_settings = SubResource("LabelSettings_fou0f")
 horizontal_alignment = 2
 
-[node name="CreditsLabel2" type="Label" parent="."]
+[node name="CreditsLabel2" type="Label" parent="EndCredits"]
 layout_mode = 1
 offset_left = 574.0
 offset_top = 315.0
@@ -82,51 +87,69 @@ STORY AND UI DESIGN"
 label_settings = SubResource("LabelSettings_fou0f")
 horizontal_alignment = 2
 
-[node name="Copyright2" type="Label" parent="."]
+[node name="Copyright2" type="Label" parent="EndCredits"]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -265.0
-offset_top = -312.0
-offset_right = -42.0
-offset_bottom = -286.0
+offset_left = 975.0
+offset_top = 368.0
+offset_right = 1198.0
+offset_bottom = 394.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "Fleurdelis the Witch"
 label_settings = SubResource("LabelSettings_vnp7o")
 horizontal_alignment = 2
 
-[node name="CreditsLabel3" type="Label" parent="."]
+[node name="SoundResources" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SoundResources" type="Label" parent="SoundResources"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 279.0
-offset_top = 503.0
-offset_right = 599.0
-offset_bottom = 541.0
+offset_left = 899.0
+offset_top = 39.0
+offset_right = 1219.0
+offset_bottom = 77.0
 grow_horizontal = 2
 text = "SOUND RESOURCES"
 label_settings = SubResource("LabelSettings_fou0f")
 horizontal_alignment = 2
 
-[node name="Copyright3" type="Label" parent="."]
+[node name="Copyright3" type="Label" parent="SoundResources"]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -803.0
-offset_top = -165.0
-offset_right = -38.0
-offset_bottom = -110.0
+offset_left = 437.0
+offset_top = 51.0
+offset_right = 1202.0
+offset_bottom = 106.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "Raspy Tomboy Voice Female Moan Sound Effect (30 Second Sample) by 
 magicalmysticva -- https://freesound.org/s/754204/ -- License: Attribution 4.0"
 label_settings = SubResource("LabelSettings_vnp7o")
 horizontal_alignment = 2
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="FadeRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
