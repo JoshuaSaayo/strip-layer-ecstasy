@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var spine: SpineSprite = $SpineSprite
+@onready var spine: Node2D = $SpineSprite
 @onready var sfx_moan: AudioStreamPlayer = $SFX/SFXMoan
 @onready var sfx_plaps: AudioStreamPlayer = $SFX/SFXPlaps
 @onready var sfx_cum: AudioStreamPlayer = $SFX/SFXCum

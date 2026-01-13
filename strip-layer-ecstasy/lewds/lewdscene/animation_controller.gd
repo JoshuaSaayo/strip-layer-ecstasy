@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var spine: SpineSprite = $SpineSprite
+@onready var spine: Node2D = $SpineSprite
 @onready var click_spot_top: Area2D = $ClickSpotTop
 @onready var click_spot_bottom: Area2D = $ClickSpotBottom
 @onready var progress_bar: TextureProgressBar = $TextureProgressBar
