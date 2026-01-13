@@ -1,0 +1,132 @@
+[gd_scene load_steps=7 format=3 uid="uid://rpk4xt2f2qjp"]
+
+[ext_resource type="Texture2D" uid="uid://bop6ua8in3swo" path="res://UI/assets/main_menu.png" id="1_cpqwh"]
+[ext_resource type="FontFile" uid="uid://b2lhiurb5m3t1" path="res://UI/fonts/Montserrat-ExtraBold.ttf" id="2_wgxa4"]
+[ext_resource type="FontFile" uid="uid://b7vtyy4qnrm0v" path="res://UI/fonts/Montserrat-Regular.ttf" id="3_liubm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wgxa4"]
+font = ExtResource("2_wgxa4")
+font_size = 50
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_fou0f"]
+font = ExtResource("2_wgxa4")
+font_size = 30
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vnp7o"]
+font = ExtResource("3_liubm")
+font_size = 20
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.27058825)
+
+[node name="ending_credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainMenu" type="Sprite2D" parent="."]
+position = Vector2(640, 360)
+texture = ExtResource("1_cpqwh")
+
+[node name="Dim" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_right = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.70980394)
+
+[node name="ThankYou" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -102.0
+offset_top = 30.0
+offset_right = 590.0
+offset_bottom = 157.0
+grow_horizontal = 2
+text = "THANK YOU FOR 
+PLAYING MY GAME!"
+label_settings = SubResource("LabelSettings_wgxa4")
+horizontal_alignment = 2
+
+[node name="StayTuned" type="Label" parent="."]
+layout_mode = 1
+offset_left = 854.0
+offset_top = 177.0
+offset_right = 1230.0
+offset_bottom = 215.0
+text = "Stay tuned for updates!"
+label_settings = SubResource("LabelSettings_fou0f")
+horizontal_alignment = 2
+
+[node name="CreditsLabel2" type="Label" parent="."]
+layout_mode = 1
+offset_left = 574.0
+offset_top = 315.0
+offset_right = 1239.0
+offset_bottom = 394.0
+text = "ARTS, ANIMATION, SOUNDS, DEVELOPER,
+STORY AND UI DESIGN"
+label_settings = SubResource("LabelSettings_fou0f")
+horizontal_alignment = 2
+
+[node name="Copyright2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -265.0
+offset_top = -312.0
+offset_right = -42.0
+offset_bottom = -286.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Fleurdelis the Witch"
+label_settings = SubResource("LabelSettings_vnp7o")
+horizontal_alignment = 2
+
+[node name="CreditsLabel3" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 279.0
+offset_top = 503.0
+offset_right = 599.0
+offset_bottom = 541.0
+grow_horizontal = 2
+text = "SOUND RESOURCES"
+label_settings = SubResource("LabelSettings_fou0f")
+horizontal_alignment = 2
+
+[node name="Copyright3" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -803.0
+offset_top = -165.0
+offset_right = -38.0
+offset_bottom = -110.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Raspy Tomboy Voice Female Moan Sound Effect (30 Second Sample) by 
+magicalmysticva -- https://freesound.org/s/754204/ -- License: Attribution 4.0"
+label_settings = SubResource("LabelSettings_vnp7o")
+horizontal_alignment = 2

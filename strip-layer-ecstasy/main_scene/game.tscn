@@ -1,7 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://6nq16miftley"]
+[gd_scene load_steps=11 format=3 uid="uid://6nq16miftley"]
 
 [ext_resource type="PackedScene" uid="uid://d2kmpgdjyrexx" path="res://lewds/lewdscene/yuri_strip.tscn" id="1_kffg0"]
 [ext_resource type="AudioStream" uid="uid://c6welw77cs7pm" path="res://UI/sounds/background_ost.wav" id="2_swm8w"]
+[ext_resource type="Texture2D" uid="uid://dt81ety56fask" path="res://UI/assets/pause_button.png" id="3_3gp34"]
+[ext_resource type="FontFile" uid="uid://b2lhiurb5m3t1" path="res://UI/fonts/Montserrat-ExtraBold.ttf" id="3_qdf84"]
+[ext_resource type="Texture2D" uid="uid://dvhrexhy8uufa" path="res://UI/assets/pause_button_hover.png" id="4_qdf84"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3gp34"]
+texture = ExtResource("3_3gp34")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qdf84"]
+texture = ExtResource("4_qdf84")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pq24l"]
+texture = ExtResource("4_qdf84")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_srjk2"]
+texture = ExtResource("3_3gp34")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1plsx"]
+texture = ExtResource("3_3gp34")
 
 [node name="game" type="Node2D"]
 
@@ -13,3 +31,23 @@ position = Vector2(5, -3)
 [node name="Background" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_swm8w")
 autoplay = true
+
+[node name="PauseButton" type="Button" parent="."]
+offset_left = 1200.0
+offset_top = 30.0
+offset_right = 1250.0
+offset_bottom = 80.0
+theme_override_colors/font_color = Color(0.9098039, 0.87058824, 0.99607843, 1)
+theme_override_colors/font_focus_color = Color(0.9098039, 0.87058824, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(0.9098039, 0.87058824, 1, 1)
+theme_override_fonts/font = ExtResource("3_qdf84")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_3gp34")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_qdf84")
+theme_override_styles/hover = SubResource("StyleBoxTexture_pq24l")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_srjk2")
+theme_override_styles/focus = SubResource("StyleBoxTexture_1plsx")
+text = "X"

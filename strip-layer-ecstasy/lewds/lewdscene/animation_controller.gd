@@ -3,8 +3,8 @@ extends Node2D
 @onready var spine: SpineSprite = $SpineSprite
 @onready var click_spot_top: Area2D = $ClickSpotTop
 @onready var click_spot_bottom: Area2D = $ClickSpotBottom
-@onready var progress_bar: ProgressBar = $ProgressBar
-@onready var layer_label: Label = $ProgressBar/Label
+@onready var progress_bar: TextureProgressBar = $TextureProgressBar
+@onready var layer_label: Label = $TextureProgressBar/Panel/Label
 
 var strip_level: int = 0
 const MAX_LEVELS: int = 4
@@ -82,7 +82,7 @@ func _on_click_spot(viewport: Node, event: InputEvent, shape_idx: int, area_type
 			trigger_strip()
 
 func update_ui():
-	layer_label.text = "Layer %d/4\n%.0f%%" % [strip_level + 1, progress_bar.value]
+	layer_label.text = "Layer %d/4 %.0f%%" % [strip_level + 1, progress_bar.value]
 
 func _on_spine_sprite_animation_completed(spine_sprite: Object, animation_state: Object, track_entry: Object) -> void:
 	var anim_name: String = track_entry.get_animation().get_name()
@@ -92,13 +92,7 @@ func _on_spine_sprite_animation_completed(spine_sprite: Object, animation_state:
 		strip_level += 1
 		
 		if strip_level >= MAX_LEVELS:
-			# Final stripping just finished → go to lewd reward scene!
-			# Option A: Change scene (recommended for full-screen lewd)
 			get_tree().change_scene_to_file("res://lewds/lewdscene/yuri_ls.tscn")  # ← Change this path!
 			
-			# Option B: If you prefer to instance it as overlay/child (keeps character visible)
-			# var lewd_scene = preload("res://LewdReward.tscn").instantiate()
-			# add_child(lewd_scene)
-			# lewd_scene.position = Vector2(0,0)  # or center it
 		else:
 			reset_layer()  # Continue to next stripping layer
