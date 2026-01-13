@@ -66,14 +66,25 @@ func trigger_strip():
 func _on_click_spot(viewport: Node, event: InputEvent, shape_idx: int, area_type: String):
 	if is_stripping:
 		return
+		
+	# Handle both mouse click AND touchscreen tap
+	var is_valid_press = false
 	
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		# Optional: Different damage based on area type
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			is_valid_press = true
+			
+	elif event is InputEventScreenTouch:
+		if event.pressed:  # true = finger down (tap start)
+			is_valid_press = true
+	
+	if is_valid_press:
+		# Optional: Different damage based on area type (you can expand later)
 		var damage_multiplier = 1.0
 		match area_type:
-			"top": damage_multiplier = 1.0
-			"mid": damage_multiplier = 1.0
-			"bottom": damage_multiplier = 1.0
+			"top":    damage_multiplier = 1.0
+			"bottom": damage_multiplier = 1.2  # example: bottom more sensitive?
+			_:        damage_multiplier = 1.0
 		
 		progress_bar.value -= DAMAGE_PER_CLICK * damage_multiplier
 		update_ui()

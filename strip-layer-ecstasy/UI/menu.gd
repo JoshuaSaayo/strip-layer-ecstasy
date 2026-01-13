@@ -20,7 +20,17 @@ func _ready() -> void:
 	quit.visible = false
 
 func _on_new_game_pressed() -> void:
-	get_tree().change_scene_to_file("res://main_scene/game.tscn")
+	print("NewGame button PRESSED! Function called.")
+	var target_path = "res://main_scene/game.tscn"
+	print("Target path: ", target_path)
+	print("Path exists? ", ResourceLoader.exists(target_path))
+	
+	var err = get_tree().change_scene_to_file(target_path)
+	if err != OK:
+		print("CHANGE SCENE FAILED! Error code: ", err)  # e.g. 7 = ERR_CANT_OPEN
+		print("Possible cause: file missing, wrong case, or export filter issue")
+	else:
+		print("Scene change requested successfully")
 
 
 func _on_credits_btn_pressed() -> void:

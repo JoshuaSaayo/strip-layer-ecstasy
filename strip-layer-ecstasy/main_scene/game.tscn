@@ -1,10 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://6nq16miftley"]
+[gd_scene load_steps=21 format=3 uid="uid://6nq16miftley"]
 
 [ext_resource type="PackedScene" uid="uid://d2kmpgdjyrexx" path="res://lewds/lewdscene/yuri_strip.tscn" id="1_kffg0"]
+[ext_resource type="Script" uid="uid://bo7s76rvrg5rc" path="res://main_scene/game.gd" id="1_pq24l"]
 [ext_resource type="AudioStream" uid="uid://c6welw77cs7pm" path="res://UI/sounds/background_ost.wav" id="2_swm8w"]
 [ext_resource type="Texture2D" uid="uid://dt81ety56fask" path="res://UI/assets/pause_button.png" id="3_3gp34"]
 [ext_resource type="FontFile" uid="uid://b2lhiurb5m3t1" path="res://UI/fonts/Montserrat-ExtraBold.ttf" id="3_qdf84"]
 [ext_resource type="Texture2D" uid="uid://dvhrexhy8uufa" path="res://UI/assets/pause_button_hover.png" id="4_qdf84"]
+[ext_resource type="Texture2D" uid="uid://c6dbddw3bc1e4" path="res://UI/assets/pause_panel.png" id="7_1plsx"]
+[ext_resource type="FontFile" uid="uid://b7vtyy4qnrm0v" path="res://UI/fonts/Montserrat-Regular.ttf" id="8_boge6"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3gp34"]
 texture = ExtResource("3_3gp34")
@@ -21,7 +24,32 @@ texture = ExtResource("3_3gp34")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1plsx"]
 texture = ExtResource("3_3gp34")
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mhfeq"]
+texture = ExtResource("7_1plsx")
+
+[sub_resource type="LabelSettings" id="LabelSettings_c3jnc"]
+font = ExtResource("3_qdf84")
+font_size = 30
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wnbhx"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lf4ep"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nwrly"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f0gd0"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8mafi"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
 [node name="game" type="Node2D"]
+script = ExtResource("1_pq24l")
 
 [node name="CharacterStrip" type="Node2D" parent="."]
 
@@ -51,3 +79,115 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_pq24l")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_srjk2")
 theme_override_styles/focus = SubResource("StyleBoxTexture_1plsx")
 text = "X"
+
+[node name="Pause" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1280.0
+offset_bottom = 720.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Dim" type="ColorRect" parent="Pause"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.3529412)
+
+[node name="PausePanel" type="Panel" parent="Pause"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -271.0
+offset_top = -133.0
+offset_right = 271.0
+offset_bottom = 177.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_mhfeq")
+
+[node name="QuitLabel" type="Label" parent="Pause/PausePanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -53.0
+offset_top = 70.0
+offset_right = 54.0
+offset_bottom = 108.0
+grow_horizontal = 2
+text = "PAUSE"
+label_settings = SubResource("LabelSettings_c3jnc")
+
+[node name="ResumeBtn" type="Button" parent="Pause/PausePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -222.0
+offset_top = 20.0
+offset_right = -118.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.47649, 1.47649)
+theme_override_colors/font_color = Color(0.9098039, 0.87058824, 1, 1)
+theme_override_colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(0.9098039, 0.87058824, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("8_boge6")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_wnbhx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lf4ep")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nwrly")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_f0gd0")
+theme_override_styles/focus = SubResource("StyleBoxFlat_8mafi")
+text = "Resume"
+
+[node name="MainMenuBtn" type="Button" parent="Pause/PausePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 12.9999695
+offset_top = 20.0
+offset_right = 153.99997
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.47649, 1.47649)
+theme_override_colors/font_color = Color(0.9098039, 0.87058824, 1, 1)
+theme_override_colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(0.9098039, 0.87058824, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("8_boge6")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_wnbhx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lf4ep")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nwrly")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_f0gd0")
+theme_override_styles/focus = SubResource("StyleBoxFlat_8mafi")
+text = "Main Menu"
+
+[connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="pressed" from="Pause/PausePanel/ResumeBtn" to="." method="_on_resume_btn_pressed"]
+[connection signal="pressed" from="Pause/PausePanel/MainMenuBtn" to="." method="_on_main_menu_btn_pressed"]
