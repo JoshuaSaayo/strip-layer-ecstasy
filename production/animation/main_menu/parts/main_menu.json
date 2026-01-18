@@ -20,8 +20,8 @@
 	{ "name": "m_eyes", "bone": "root", "attachment": "m_eyes" },
 	{ "name": "m_eyebrows", "bone": "root", "attachment": "m_eyebrows" },
 	{ "name": "m_bangs", "bone": "root", "attachment": "m_bangs" },
-	{ "name": "l_horn", "bone": "root", "attachment": "l_horn" },
-	{ "name": "r_horn", "bone": "root", "attachment": "r_horn" },
+	{ "name": "m_l_horn", "bone": "root", "attachment": "m_l_horn" },
+	{ "name": "m_r_horn", "bone": "root", "attachment": "m_r_horn" },
 	{ "name": "back_hair", "bone": "root", "attachment": "back_hair" },
 	{ "name": "r_hand", "bone": "root", "attachment": "r_hand" },
 	{ "name": "r_sleeve", "bone": "root", "attachment": "r_sleeve" },
@@ -44,7 +44,7 @@
 			"BG": { "x": 640, "y": -360, "width": 1282, "height": 722 }
 		},
 		"Folder54": {
-			"Folder54": { "x": 664, "y": -417, "width": 1330, "height": 836 }
+			"Folder54": { "x": 640, "y": -360, "width": 1282, "height": 722 }
 		},
 		"m_back_hair": {
 			"m_back_hair": { "x": 200.5, "y": -255, "width": 193, "height": 182 }
@@ -88,11 +88,11 @@
 		"m_bangs": {
 			"m_bangs": { "x": 174.5, "y": -244, "width": 131, "height": 132 }
 		},
-		"l_horn": {
-			"l_horn": { "x": 117.5, "y": -260, "width": 45, "height": 70 }
+		"m_l_horn": {
+			"m_l_horn": { "x": 117.5, "y": -260, "width": 45, "height": 70 }
 		},
-		"r_horn": {
-			"r_horn": { "x": 220, "y": -239, "width": 52, "height": 68 }
+		"m_r_horn": {
+			"m_r_horn": { "x": 220, "y": -239, "width": 52, "height": 68 }
 		},
 		"back_hair": {
 			"back_hair": { "x": 456.5, "y": -324.5, "width": 441, "height": 491 }

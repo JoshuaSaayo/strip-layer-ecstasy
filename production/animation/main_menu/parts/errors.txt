@@ -1,0 +1,49 @@
+Multiple layers for the "default" skin in the "back_hair" slot have the same name "back_hair":
+mei/back_hair
+yuri/back_hair
+Rename or use the [ignore] tag for these layers.
+---
+Multiple layers for the "default" skin in the "r_hand" slot have the same name "r_hand":
+mei/r_hand
+yuri/r_hand
+Rename or use the [ignore] tag for these layers.
+---
+Multiple layers for the "default" skin in the "r_sleeve" slot have the same name "r_sleeve":
+mei/r_sleeve
+yuri/r_sleeve
+Rename or use the [ignore] tag for these layers.
+---
+Multiple layers for the "default" skin in the "r_thigh" slot have the same name "r_thigh":
+mei/r_thigh
+yuri/r_thigh
+Rename or use the [ignore] tag for these layers.
+---
+Multiple layers for the "default" skin in the "l_leg" slot have the same name "l_leg":
+mei/l_leg
+yuri/l_leg
+Rename or use the [ignore] tag for these layers.
+---
+Multiple layers for the "default" skin in the "l_thigh" slot have the same name "l_thigh":
+mei/l_thigh
+yuri/l_thigh
+Rename or use the [ignore] tag for these layers.
+---
+Multiple layers for the "default" skin in the "torso" slot have the same name "torso":
+mei/torso
+yuri/torso
+Rename or use the [ignore] tag for these layers.
+---
+Multiple layers for the "default" skin in the "l_hand" slot have the same name "l_hand":
+mei/l_hand
+yuri/l_hand
+Rename or use the [ignore] tag for these layers.
+---
+Multiple layers for the "default" skin in the "l_sleeve" slot have the same name "l_sleeve":
+mei/l_sleeve
+yuri/l_sleeve
+Rename or use the [ignore] tag for these layers.
+---
+Multiple layers for the "default" skin in the "bangs" slot have the same name "bangs":
+mei/bangs
+yuri/bangs
+Rename or use the [ignore] tag for these layers.
