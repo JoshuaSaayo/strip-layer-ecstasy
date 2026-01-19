@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://i5c0wxduo6f7"
+path="res://.godot/imported/mei_strip.skel-0b99eee17b95477636ecb211a20d0d35.spskel"
+
+[deps]
+
+source_file="res://lewds/lewd_assets/mei_strip/mei_strip.skel"
+dest_files=["res://.godot/imported/mei_strip.skel-0b99eee17b95477636ecb211a20d0d35.spskel"]
+
+[params]
+

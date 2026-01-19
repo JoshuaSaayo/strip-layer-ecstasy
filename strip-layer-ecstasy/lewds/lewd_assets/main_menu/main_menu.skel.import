@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://bh7sprgsjo3gk"
+path="res://.godot/imported/main_menu.skel-9cda27f1bbc715d92c50d496b26beafb.spskel"
+
+[deps]
+
+source_file="res://lewds/lewd_assets/main_menu/main_menu.skel"
+dest_files=["res://.godot/imported/main_menu.skel-9cda27f1bbc715d92c50d496b26beafb.spskel"]
+
+[params]
+

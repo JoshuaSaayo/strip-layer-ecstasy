@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgyk4kfjvvqmh"]
+
+[ext_resource type="SpineSkeletonDataResource" uid="uid://clpdm245b12n4" path="res://lewds/lewd_assets/main_menu/main_menu.tres" id="1_rfcx8"]
+
+[node name="main_menu" type="SpineSprite"]
+skeleton_data_res = ExtResource("1_rfcx8")
+preview_skin = "Default"
+preview_animation = "animation"
+preview_frame = false
+preview_time = 0.0
