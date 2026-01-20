@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://cp04nq3byt7pv"
+path="res://.godot/imported/mei_ls.atlas-e754caf9bb994b23ee92c57e84ca60d3.spatlas"
+
+[deps]
+
+source_file="res://lewds/lewd_assets/mei_ls/mei_ls.atlas"
+dest_files=["res://.godot/imported/mei_ls.atlas-e754caf9bb994b23ee92c57e84ca60d3.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

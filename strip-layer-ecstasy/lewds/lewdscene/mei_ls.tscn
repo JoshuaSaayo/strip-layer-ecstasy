@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3chjb1g3y7ce"]
+
+[ext_resource type="SpineSkeletonDataResource" uid="uid://b3gml0fnustfx" path="res://lewds/lewd_assets/mei_ls/mei_ls.tres" id="1_atdno"]
+
+[node name="mei_ls" type="Node2D"]
+
+[node name="SpineSprite" type="SpineSprite" parent="."]
+position = Vector2(-11, -114)
+scale = Vector2(0.9456564, 0.9456564)
+skeleton_data_res = ExtResource("1_atdno")
+preview_skin = "Default"
+preview_animation = "-- Empty --"
+preview_frame = false
+preview_time = 0.0
+
+[node name="SFX" type="Node" parent="."]
+
+[node name="SFXMoan" type="AudioStreamPlayer" parent="SFX"]
+
+[node name="SFXPlaps" type="AudioStreamPlayer" parent="SFX"]
+
+[node name="SFXCum" type="AudioStreamPlayer" parent="SFX"]

@@ -41,7 +41,7 @@ shape = SubResource("RectangleShape2D_o7w0v")
 position = Vector2(592, 475)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ClickSpotBottom"]
-position = Vector2(-47, 23.5)
+position = Vector2(-22, 50)
 shape = SubResource("RectangleShape2D_o7w0v")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
@@ -77,3 +77,6 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "20/20"
 label_settings = SubResource("LabelSettings_sgumq")
+
+[connection signal="animation_completed" from="SpineSprite" to="." method="_on_spine_sprite_animation_completed"]
+[connection signal="animation_ended" from="SpineSprite" to="." method="_on_spine_sprite_animation_ended"]

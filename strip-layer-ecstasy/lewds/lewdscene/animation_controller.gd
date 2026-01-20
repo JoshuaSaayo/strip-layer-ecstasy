@@ -107,3 +107,7 @@ func _on_spine_sprite_animation_completed(spine_sprite: Object, animation_state:
 			
 		else:
 			reset_layer()  # Continue to next stripping layer
+
+
+func _on_spine_sprite_animation_ended(spine_sprite: Object, animation_state: Object, track_entry: Object) -> void:
+	pass # Replace with function body.
