@@ -1,8 +1,8 @@
 [gd_scene load_steps=33 format=3 uid="uid://cbgkrnpa2ypg8"]
 
-[ext_resource type="Texture2D" uid="uid://bop6ua8in3swo" path="res://UI/assets/main_menu.png" id="1_0h2wq"]
 [ext_resource type="Script" uid="uid://cu8jiq8jr42pf" path="res://UI/menu.gd" id="1_kfjwn"]
 [ext_resource type="FontFile" uid="uid://b7vtyy4qnrm0v" path="res://UI/fonts/Montserrat-Regular.ttf" id="2_e05sn"]
+[ext_resource type="PackedScene" uid="uid://cgyk4kfjvvqmh" path="res://lewds/lewdscene/main_menu.tscn" id="2_wcfn6"]
 [ext_resource type="Texture2D" uid="uid://bv2d25qsi6rrs" path="res://UI/assets/Logo.png" id="2_wfiwe"]
 [ext_resource type="Texture2D" uid="uid://c4n0nc5skapjw" path="res://UI/assets/Button.png" id="3_kfjwn"]
 [ext_resource type="Texture2D" uid="uid://bt1ijjcxikv6m" path="res://UI/assets/Button_hover.png" id="4_dte3n"]
@@ -94,12 +94,9 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_kfjwn")
 
-[node name="Background" type="TextureRect" parent="."]
-layout_mode = 0
-offset_right = 1380.6078
-offset_bottom = 775.51324
-scale = Vector2(0.927128, 0.927128)
-texture = ExtResource("1_0h2wq")
+[node name="main_menu" parent="." instance=ExtResource("2_wcfn6")]
+position = Vector2(-2, -3)
+scale = Vector2(1.01, 1.01)
 
 [node name="NewGame" type="Button" parent="."]
 layout_mode = 1

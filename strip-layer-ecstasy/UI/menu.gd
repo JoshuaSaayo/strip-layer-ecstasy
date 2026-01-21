@@ -8,6 +8,7 @@ extends Control
 @onready var dim: ColorRect = $Dim
 @onready var credits: Control = $Credits
 @onready var quit: Control = $Quit
+@onready var main_menu: Node2D = $main_menu
 
 func _ready() -> void:
 	new_game.visible = true
@@ -19,6 +20,12 @@ func _ready() -> void:
 	credits.visible = false
 	quit.visible = false
 
+	play_menu_animation()
+	
+func play_menu_animation():
+	# Track 0, animation name, loop = true
+	main_menu.get_animation_state().set_animation("animation", true, 0)
+	
 func _on_new_game_pressed() -> void:
 	print("NewGame button PRESSED! Function called.")
 	var target_path = "res://main_scene/game.tscn"
