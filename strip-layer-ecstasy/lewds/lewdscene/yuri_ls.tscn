@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cxtdht36xkwys"]
+[gd_scene load_steps=5 format=3 uid="uid://cxtdht36xkwys"]
 
 [ext_resource type="SpineSkeletonDataResource" uid="uid://cogurb4k2jmty" path="res://lewds/lewd_assets/yuri_ls/yuri_ls.tres" id="1_6c4g4"]
 [ext_resource type="Script" uid="uid://blrbda8l3lgq2" path="res://lewds/lewdscene/lewdscene_controller.gd" id="1_mc0xj"]
+[ext_resource type="AudioStream" uid="uid://b4oioe1rln0s3" path="res://lewds/lewd_assets/yuri_ls/sounds/plaps1.wav" id="3_f7dww"]
+[ext_resource type="AudioStream" uid="uid://dtpixjnuo3ek3" path="res://lewds/lewd_assets/yuri_ls/sounds/yuri_cum.wav" id="4_swf03"]
 
 [node name="yuri_ls" type="Node2D"]
 script = ExtResource("1_mc0xj")
@@ -18,8 +20,7 @@ preview_time = 0.0
 [node name="SFXMoan" type="AudioStreamPlayer" parent="SFX"]
 
 [node name="SFXPlaps" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("3_f7dww")
 
 [node name="SFXCum" type="AudioStreamPlayer" parent="SFX"]
-
-[connection signal="animation_completed" from="SpineSprite" to="." method="_on_spine_sprite_animation_completed"]
-[connection signal="animation_event" from="SpineSprite" to="." method="_on_spine_sprite_animation_event"]
+stream = ExtResource("4_swf03")
