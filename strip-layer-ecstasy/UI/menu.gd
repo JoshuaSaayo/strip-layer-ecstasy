@@ -29,7 +29,12 @@ func play_menu_animation():
 
 func _on_new_game_pressed() -> void:
 	GameState.current_level = 0
+
+	await Fade.fade_out_white()
 	get_tree().change_scene_to_file("res://main_scene/game.tscn")
+	await Fade.fade_in_white()
+
+	FlowController.start_game()
 
 func _on_credits_btn_pressed() -> void:
 	toggle_ui(false)

@@ -54,10 +54,12 @@ func _on_stripping_finished():
 	_show_dialogue(GameState.get_level()["dialogue"]["finish"], _on_finish_dialogue_done)
 
 func _on_finish_dialogue_done():
-	var lvl = GameState.get_level()
+	var lewd_scene = GameState.get_level()["scenes"]["lewd"]
+
+	await Fade.fade_out_white()
 	cleanup()
-	game_started = false
-	get_tree().change_scene_to_file(lvl["scenes"]["lewd"])
+	get_tree().change_scene_to_file(lewd_scene)
+	await Fade.fade_in_white()
 
 func _show_dialogue(lines: Array, callback: Callable):
 	if is_instance_valid(current_stripping_scene):

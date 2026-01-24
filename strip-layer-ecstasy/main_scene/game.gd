@@ -26,6 +26,3 @@ func _ready() -> void:
 
 func _on_intro_dialogue_finished():
 	character_strip.load_stripping_scene()
-
-func _on_finish_dialogue_done():
-	get_tree().change_scene_to_file(GameState.get_level()["scenes"]["lewd"])

@@ -61,8 +61,7 @@ func show_line():
 		print("DIALOGUE FINISHED - All lines shown")
 		running = false
 		if on_finish.is_valid():
-			print("Calling finish callback")
-			on_finish.call()
+			call_deferred("_finish_dialogue")
 		else:
 			print("No finish callback")
 		return
@@ -82,6 +81,10 @@ func show_line():
 		if next_button:
 			next_button.text = "Finish"
 		print("Last line shown - next click will finish")
+
+func _finish_dialogue():
+	await get_tree().create_timer(0.1).timeout
+	on_finish.call()
 
 func _on_next_pressed():
 	print("=== DIALOGUE: NEXT BUTTON PRESSED ===")

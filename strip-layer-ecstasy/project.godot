@@ -19,6 +19,7 @@ config/icon="uid://c6g6h5b8yx77a"
 
 GameState="*res://autoload/game_state.gd"
 FlowController="*res://autoload/flow_controller.gd"
+Fade="*res://autoload/fade_transition.tscn"
 
 [display]
 

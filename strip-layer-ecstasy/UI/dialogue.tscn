@@ -56,7 +56,6 @@ offset_right = -21.0
 offset_bottom = -18.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "LOREM"
 label_settings = SubResource("LabelSettings_6k0i6")
 autowrap_mode = 2
 
