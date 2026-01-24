@@ -106,12 +106,13 @@ func _on_finish_dialogue_done():
 	get_tree().change_scene_to_file(lewd_scene_path)
 
 func _show_dialogue(lines: Array, callback: Callable):
-	print("Showing dialogue with ", lines.size(), " lines")
+	print("=== Showing dialogue ===")
+	print("Lines: ", lines)
 	
-	# Remove existing dialogue
-	if current_dialogue and is_instance_valid(current_dialogue):
-		current_dialogue.queue_free()
-		current_dialogue = null
+	if current_stripping_scene and is_instance_valid(current_stripping_scene):
+		current_stripping_scene.set_process_input(false)
+		current_stripping_scene.set_process(false)
+		print("Paused stripping scene input")
 	
 	# Create new dialogue
 	var dlg = preload("res://UI/dialogue.tscn").instantiate()
@@ -120,13 +121,20 @@ func _show_dialogue(lines: Array, callback: Callable):
 	var current_scene = get_tree().current_scene
 	if current_scene:
 		current_scene.add_child(dlg)
-		print("Added dialogue to: ", current_scene.name)
+		print("Dialogue added as child of: ", current_scene.name)
+		
+		# Make sure it's visible and can receive input
+		dlg.visible = true
+		dlg.process_mode = Node.PROCESS_MODE_INHERIT
+		
+		# Bring to front
+		current_scene.move_child(dlg, current_scene.get_child_count() - 1)
 	
 	current_dialogue = dlg
 	
 	# Pass the callback
 	dlg.start(lines, func():
-		print("Dialogue callback executed")
+		print("Dialogue finished callback")
 		if current_dialogue and is_instance_valid(current_dialogue):
 			current_dialogue.queue_free()
 			current_dialogue = null
