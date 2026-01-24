@@ -1,8 +1,7 @@
-[gd_scene load_steps=22 format=3 uid="uid://6nq16miftley"]
+[gd_scene load_steps=21 format=3 uid="uid://6nq16miftley"]
 
 [ext_resource type="Script" uid="uid://bo7s76rvrg5rc" path="res://main_scene/game.gd" id="1_pq24l"]
 [ext_resource type="Script" uid="uid://dhqdf8me81r4k" path="res://main_scene/character_strip.gd" id="2_mhfeq"]
-[ext_resource type="AudioStream" uid="uid://c6welw77cs7pm" path="res://UI/sounds/background_ost.wav" id="2_swm8w"]
 [ext_resource type="Texture2D" uid="uid://dt81ety56fask" path="res://UI/assets/pause_button.png" id="3_3gp34"]
 [ext_resource type="FontFile" uid="uid://b2lhiurb5m3t1" path="res://UI/fonts/Montserrat-ExtraBold.ttf" id="3_qdf84"]
 [ext_resource type="Texture2D" uid="uid://dvhrexhy8uufa" path="res://UI/assets/pause_button_hover.png" id="4_qdf84"]
@@ -166,10 +165,6 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_8mafi")
 text = "Main Menu"
 
 [node name="dialogue" parent="CharacterStrip" instance=ExtResource("9_boge6")]
-
-[node name="Background" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_swm8w")
-autoplay = true
 
 [node name="PauseButton" type="Button" parent="."]
 layout_mode = 0

@@ -1,0 +1,84 @@
+[gd_scene load_steps=11 format=3 uid="uid://d2kmpgdjyrexx"]
+
+[ext_resource type="SpineSkeletonDataResource" uid="uid://e3qwlds1s1e" path="res://lewds/lewd_assets/yuri_strip/yuri_strip.tres" id="1_0ji06"]
+[ext_resource type="Script" uid="uid://crnn83yfn3afv" path="res://lewds/lewdscene/animation_controller.gd" id="1_vwvpl"]
+[ext_resource type="Texture2D" uid="uid://c74d7uphwu703" path="res://UI/assets/HP bar.png" id="3_7qw3v"]
+[ext_resource type="Texture2D" uid="uid://k4ylvoa46f3m" path="res://UI/assets/HP bar upper.png" id="4_55o35"]
+[ext_resource type="Texture2D" uid="uid://celae1gtiqkpo" path="res://UI/assets/HP progress.png" id="4_vpa3t"]
+[ext_resource type="Texture2D" uid="uid://drhugbnclb4wk" path="res://UI/assets/bar_small.png" id="6_c5haa"]
+[ext_resource type="FontFile" uid="uid://b7vtyy4qnrm0v" path="res://UI/fonts/Montserrat-Regular.ttf" id="7_y7pfe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ji06"]
+size = Vector2(304, 177.5)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u1x8a"]
+texture = ExtResource("6_c5haa")
+
+[sub_resource type="LabelSettings" id="LabelSettings_fdf7t"]
+font = ExtResource("7_y7pfe")
+font_size = 15
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.2)
+
+[node name="yuri_strip" type="Node2D"]
+script = ExtResource("1_vwvpl")
+
+[node name="SpineSprite" type="SpineSprite" parent="."]
+position = Vector2(-74, 1.0000038)
+scale = Vector2(1.0786303, 1.0786303)
+skeleton_data_res = ExtResource("1_0ji06")
+preview_skin = "Default"
+preview_animation = "-- Empty --"
+preview_frame = false
+preview_time = 0.0
+
+[node name="ClickSpotTop" type="Area2D" parent="."]
+position = Vector2(718, 286)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickSpotTop"]
+position = Vector2(-60, 26)
+shape = SubResource("RectangleShape2D_0ji06")
+
+[node name="ClickSpotBottom" type="Area2D" parent="."]
+position = Vector2(592, 475)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickSpotBottom"]
+position = Vector2(-47, 23.5)
+shape = SubResource("RectangleShape2D_0ji06")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+offset_left = 797.0
+offset_top = 309.0
+offset_right = 996.0
+offset_bottom = 344.0
+value = 100.0
+texture_under = ExtResource("3_7qw3v")
+texture_over = ExtResource("4_55o35")
+texture_progress = ExtResource("4_vpa3t")
+texture_progress_offset = Vector2(2, 4)
+
+[node name="Panel" type="Panel" parent="TextureProgressBar"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = -33.0
+offset_right = 176.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_u1x8a")
+
+[node name="Label" type="Label" parent="TextureProgressBar/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.5
+offset_top = -11.5
+offset_right = 19.5
+offset_bottom = 7.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "20/20"
+label_settings = SubResource("LabelSettings_fdf7t")
+
+[connection signal="animation_completed" from="SpineSprite" to="." method="_on_spine_sprite_animation_completed"]
+[connection signal="animation_ended" from="SpineSprite" to="." method="_on_spine_sprite_animation_ended"]

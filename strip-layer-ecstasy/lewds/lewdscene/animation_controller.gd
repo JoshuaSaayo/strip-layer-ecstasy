@@ -19,16 +19,22 @@ var is_stripping: bool = false
 
 func _ready():
 	FlowController.on_stripping_scene_ready(self)
-	print("Spine node type: ", $SpineSprite.get_class())
-	print("Spine node methods:")
-	for method in $SpineSprite.get_method_list():
-		print("  - ", method["name"])
-	# Connect all Area2D nodes
+	
+	# ─── START BGM HERE ───
+	if MusicManager:
+		MusicManager.play_game_music()
+		print("[AnimationController] Gameplay scene ready → BGM started")
+
+	# Your existing connections...
 	click_spot_top.input_event.connect(_on_click_spot.bind("top"))
 	click_spot_bottom.input_event.connect(_on_click_spot.bind("bottom"))
 	
-	# Default to stripping mode
 	set_mode(Mode.STRIPPING)
+
+func _exit_tree() -> void:
+	if MusicManager:
+		MusicManager.stop_game_music()
+		print("[AnimationController] Stripping scene exited → BGM stopped")
 
 func set_mode(mode: Mode):
 	current_mode = mode
