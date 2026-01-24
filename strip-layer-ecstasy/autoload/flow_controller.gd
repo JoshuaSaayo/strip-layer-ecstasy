@@ -2,141 +2,85 @@ extends Node
 
 var current_dialogue = null
 var current_stripping_scene = null
-var game_started = false  # Make sure this is declared HERE at the top!
+var game_started = false
 
 func _ready():
-	print("=== FLOW_CONTROLLER: _ready() called ===")
-	game_started = false  # Reset on start
+	game_started = false
 
 func start_game():
-	print("=== FLOW_CONTROLLER: start_game() called ===")
-	
-	if game_started:
-		print("Game already started!")
-		return
-	
+	if game_started: return
 	game_started = true
-	print("Setting game_started = true")
-	
-	# Reset any existing state
 	cleanup()
-	
-	# Start the intro
-	print("Calling start_intro_dialogue()")
 	start_intro_dialogue()
 
 func cleanup():
-	# Clean up any existing scenes
-	if current_dialogue and is_instance_valid(current_dialogue):
+	if is_instance_valid(current_dialogue):
 		current_dialogue.queue_free()
 		current_dialogue = null
 	
-	if current_stripping_scene and is_instance_valid(current_stripping_scene):
+	if is_instance_valid(current_stripping_scene):
 		current_stripping_scene.queue_free()
 		current_stripping_scene = null
 
 func start_intro_dialogue():
-	print("=== FLOW_CONTROLLER: start_intro_dialogue() called ===")
-	
 	var lvl = GameState.get_level()
-	print("Level data retrieved: ", lvl)
+	if not _validate_level(lvl): return
 	
-	if not lvl or not lvl.has("scenes") or not lvl.has("dialogue"):
-		push_error("Invalid level data")
-		return
+	current_stripping_scene = load(lvl["scenes"]["stripping"]).instantiate()
+	get_tree().current_scene.add_child(current_stripping_scene)
 	
-	# Load stripping scene
-	var stripping_scene_path = lvl["scenes"]["stripping"]
-	print("Loading stripping scene: ", stripping_scene_path)
-	
-	current_stripping_scene = load(stripping_scene_path).instantiate()
-	
-	# Add to the current scene
-	var current_scene = get_tree().current_scene
-	if current_scene:
-		current_scene.add_child(current_stripping_scene)
-		print("Added stripping scene to: ", current_scene.name)
-	
-	# Wait for scene to be ready
 	await get_tree().process_frame
 	
-	# Set to intro mode (pose1)
-	if current_stripping_scene and current_stripping_scene.has_method("set_mode"):
+	if current_stripping_scene.has_method("set_mode"):
 		current_stripping_scene.set_mode(current_stripping_scene.Mode.INTRO)
-		print("Set animation to intro mode")
 	
-	# Show intro dialogue
-	print("Showing intro dialogue...")
 	_show_dialogue(lvl["dialogue"]["intro"], _on_intro_dialogue_finished)
 
+func _validate_level(lvl: Dictionary) -> bool:
+	if not lvl or not lvl.has("scenes") or not lvl.has("dialogue"):
+		push_error("Invalid level data")
+		return false
+	return true
+
 func _on_intro_dialogue_finished():
-	print("Intro dialogue finished")
-	
-	# Switch to stripping mode
-	if current_stripping_scene and is_instance_valid(current_stripping_scene):
+	if is_instance_valid(current_stripping_scene):
 		if current_stripping_scene.has_method("set_mode"):
 			current_stripping_scene.set_mode(current_stripping_scene.Mode.STRIPPING)
-			print("Set animation to stripping mode")
 		
-		# Connect to stripping_finished signal
 		if current_stripping_scene.has_signal("stripping_finished"):
 			current_stripping_scene.stripping_finished.connect(_on_stripping_finished)
-			print("Connected to stripping_finished signal")
 
 func _on_stripping_finished():
-	print("Stripping finished")
-	
-	# Show finish dialogue
-	var lvl = GameState.get_level()
-	_show_dialogue(lvl["dialogue"]["finish"], _on_finish_dialogue_done)
+	_show_dialogue(GameState.get_level()["dialogue"]["finish"], _on_finish_dialogue_done)
 
 func _on_finish_dialogue_done():
-	print("Finish dialogue done")
-	
-	# Load lewd scene
 	var lvl = GameState.get_level()
-	var lewd_scene_path = lvl["scenes"]["lewd"]
-	
-	print("Loading lewd scene: ", lewd_scene_path)
-	
-	# Clean up before scene change
 	cleanup()
 	game_started = false
-	
-	get_tree().change_scene_to_file(lewd_scene_path)
+	get_tree().change_scene_to_file(lvl["scenes"]["lewd"])
 
 func _show_dialogue(lines: Array, callback: Callable):
-	print("=== Showing dialogue ===")
-	print("Lines: ", lines)
-	
-	if current_stripping_scene and is_instance_valid(current_stripping_scene):
+	if is_instance_valid(current_stripping_scene):
 		current_stripping_scene.set_process_input(false)
 		current_stripping_scene.set_process(false)
-		print("Paused stripping scene input")
 	
-	# Create new dialogue
-	var dlg = preload("res://UI/dialogue.tscn").instantiate()
+	cleanup_dialogue()
 	
-	# Add to current scene
-	var current_scene = get_tree().current_scene
-	if current_scene:
-		current_scene.add_child(dlg)
-		print("Dialogue added as child of: ", current_scene.name)
-		
-		# Make sure it's visible and can receive input
-		dlg.visible = true
-		dlg.process_mode = Node.PROCESS_MODE_INHERIT
-		
-		# Bring to front
-		current_scene.move_child(dlg, current_scene.get_child_count() - 1)
+	current_dialogue = preload("res://UI/dialogue.tscn").instantiate()
+	get_tree().current_scene.add_child(current_dialogue)
+	_bring_to_front(current_dialogue)
 	
-	current_dialogue = dlg
-	
-	# Pass the callback
-	dlg.start(lines, func():
-		print("Dialogue finished callback")
-		if current_dialogue and is_instance_valid(current_dialogue):
-			current_dialogue.queue_free()
-			current_dialogue = null
+	current_dialogue.start(lines, func():
+		cleanup_dialogue()
 		callback.call()
 	)
+
+func cleanup_dialogue():
+	if is_instance_valid(current_dialogue):
+		current_dialogue.queue_free()
+	current_dialogue = null
+
+func _bring_to_front(node: Node):
+	var parent = node.get_parent()
+	if parent:
+		parent.move_child(node, parent.get_child_count() - 1)
