@@ -18,6 +18,7 @@ const DAMAGE_PER_CLICK: float = 100.0 / CLICKS_NEEDED
 var is_stripping: bool = false
 
 func _ready():
+	FlowController.on_stripping_scene_ready(self)
 	print("Spine node type: ", $SpineSprite.get_class())
 	print("Spine node methods:")
 	for method in $SpineSprite.get_method_list():

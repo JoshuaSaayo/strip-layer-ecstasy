@@ -10,8 +10,10 @@ func _ready():
 func start_game():
 	if game_started: return
 	game_started = true
-	cleanup()
-	start_intro_dialogue()
+	var first_lvl = GameState.get_level()  # Assumes level 1
+	if not _validate_level(first_lvl): return
+	get_tree().call_deferred("change_scene_to_file", first_lvl["scenes"]["stripping"])
+	# ← New stripping scene's _ready() will auto-trigger intro (Step 3)
 
 func cleanup():
 	if is_instance_valid(current_dialogue):
@@ -22,18 +24,13 @@ func cleanup():
 		current_stripping_scene.queue_free()
 		current_stripping_scene = null
 
-func start_intro_dialogue():
-	var lvl = GameState.get_level()
-	if not _validate_level(lvl): return
-	
-	current_stripping_scene = load(lvl["scenes"]["stripping"]).instantiate()
-	get_tree().current_scene.add_child(current_stripping_scene)
-	
-	await get_tree().process_frame
-	
+func on_stripping_scene_ready(scene):
+	cleanup()  # Clears any old dialogue/scene refs
+	current_stripping_scene = scene
+	await get_tree().process_frame  # Ensure scene is fully ready
 	if current_stripping_scene.has_method("set_mode"):
 		current_stripping_scene.set_mode(current_stripping_scene.Mode.INTRO)
-	
+	var lvl = GameState.get_level()
 	_show_dialogue(lvl["dialogue"]["intro"], _on_intro_dialogue_finished)
 
 func _validate_level(lvl: Dictionary) -> bool:

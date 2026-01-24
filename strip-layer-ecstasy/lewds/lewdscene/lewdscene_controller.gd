@@ -54,14 +54,23 @@ func _on_animation_completed(_spine, _state, track_entry):
 				spine.get_animation_state().set_animation("climax", false, 0)
 
 		"climax":
+			# Guard against double-trigger
+			if loops_done < LOOP_COUNT:
+				return
+			if not is_inside_tree():
+				return
+			
 			await Fade.fade_out_white()
-
+			
+			# DEFER the scene change — node can die now, no awaits after
 			if GameState.is_last_level():
-				get_tree().change_scene_to_file("res://UI/ending_credits.tscn")
+				get_tree().call_deferred("change_scene_to_file", "res://UI/ending_credits.tscn")
 			else:
 				GameState.next_level()
-				FlowController.start_game()
-
+				var next_path = GameState.get_level()["scenes"]["stripping"]
+				get_tree().call_deferred("change_scene_to_file", next_path)
+			await Fade.fade_in_white()
+			
 func _on_animation_event(spine_sprite: Object, animation_state: Object, track_entry: Object, event: Object):
 	var event_name: String = event.get_data().get_event_name()
 	print("Event triggered: ", event_name, " | Anim: ", track_entry.get_animation().get_name())
