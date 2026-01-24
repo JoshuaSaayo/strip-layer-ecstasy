@@ -27,17 +27,15 @@ func play_menu_animation():
 	main_menu.get_animation_state().set_animation("animation", true, 0)
 	
 func _on_new_game_pressed() -> void:
-	print("NewGame button PRESSED! Function called.")
-	var target_path = "res://main_scene/game.tscn"
-	print("Target path: ", target_path)
-	print("Path exists? ", ResourceLoader.exists(target_path))
+	print("=== MAIN MENU: New Game pressed ===")
 	
-	var err = get_tree().change_scene_to_file(target_path)
-	if err != OK:
-		print("CHANGE SCENE FAILED! Error code: ", err)  # e.g. 7 = ERR_CANT_OPEN
-		print("Possible cause: file missing, wrong case, or export filter issue")
-	else:
-		print("Scene change requested successfully")
+	# Reset game state
+	GameState.current_level = 0
+	print("GameState level set to: ", GameState.current_level)
+	
+	# Change scene
+	get_tree().change_scene_to_file("res://main_scene/game.tscn")
+	print("Scene change requested")
 
 
 func _on_credits_btn_pressed() -> void:

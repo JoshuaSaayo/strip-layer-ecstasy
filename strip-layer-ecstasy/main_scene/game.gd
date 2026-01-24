@@ -7,11 +7,22 @@ extends Control
 var intro_started := false
 
 func _ready() -> void:
+	print("=== GAME.TSCN: _ready() called ===")
+	
 	pause.visible = false
 	dim.visible = false
 	
-	# Let flow_controller handle the dialogue
-	# Remove any dialogue-related code from here
+	# Wait a frame
+	await get_tree().process_frame
+	print("GAME.TSCN: Frame processed, calling FlowController.start_game()")
+	
+	# Call FlowController
+	if has_node("/root/FlowController"):
+		print("FlowController found, calling start_game()")
+		FlowController.start_game()
+	else:
+		print("ERROR: FlowController not found!")
+
 
 func _on_intro_dialogue_finished():
 	character_strip.load_stripping_scene()

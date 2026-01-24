@@ -8,6 +8,9 @@ signal stripping_finished
 @onready var progress_bar: TextureProgressBar = $TextureProgressBar
 @onready var layer_label: Label = $TextureProgressBar/Panel/Label
 
+enum Mode { INTRO, STRIPPING, FINAL }
+var current_mode: Mode = Mode.STRIPPING
+
 var strip_level: int = 0
 const MAX_LEVELS: int = 4
 const CLICKS_NEEDED: int = 20
@@ -15,19 +18,77 @@ const DAMAGE_PER_CLICK: float = 100.0 / CLICKS_NEEDED
 var is_stripping: bool = false
 
 func _ready():
+	print("Spine node type: ", $SpineSprite.get_class())
+	print("Spine node methods:")
+	for method in $SpineSprite.get_method_list():
+		print("  - ", method["name"])
 	# Connect all Area2D nodes
 	click_spot_top.input_event.connect(_on_click_spot.bind("top"))
 	click_spot_bottom.input_event.connect(_on_click_spot.bind("bottom"))
 	
-	reset_layer()
-	update_ui()
-	update_click_areas()
+	# Default to stripping mode
+	set_mode(Mode.STRIPPING)
+
+func set_mode(mode: Mode):
+	current_mode = mode
+	
+	match mode:
+		Mode.INTRO:
+			# Show pose1 for intro dialogue
+			strip_level = 0
+			play_pose(1)
+			hide_interactive_elements()
+			progress_bar.visible = false
+			layer_label.visible = false
+			
+		Mode.STRIPPING:
+			# Reset to pose1 and enable gameplay
+			strip_level = 0
+			reset_layer()
+			update_ui()
+			update_click_areas()
+			progress_bar.visible = true
+			layer_label.visible = true
+			
+		Mode.FINAL:
+			# Show pose5 for finish dialogue
+			play_pose(5)
+			hide_interactive_elements()
+			progress_bar.visible = false
+			layer_label.visible = false
+			# Signal that we're ready for finish dialogue
+			stripping_finished.emit()
+
+func play_pose(pose_number: int):
+	var anim_name: String = "pose%d" % pose_number
+	
+	# Try different Spine node methods based on Spine2D 4.2 runtime
+	if spine.has_method("get_animation_state"):
+		spine.get_animation_state().set_animation(anim_name, true, 0)
+	elif spine.has_method("set_animation"):
+		# Direct method if available
+		spine.set_animation(anim_name, true)
+	elif spine.has_method("get_skeleton"):
+		# Alternative Spine2D access
+		spine.get_skeleton().set_animation(anim_name, true, 0)
+	else:
+		# Debug: Print available methods
+		print("Spine node methods: ", spine.get_method_list())
+		push_error("Cannot find animation method on spine node")
+	
+	is_stripping = false
+
+func hide_interactive_elements():
+	click_spot_top.visible = false
+	click_spot_bottom.visible = false
+	set_process_input(false)
 
 func reset_layer():
 	progress_bar.value = 100.0
-	play_idle()
+	play_pose(strip_level + 1)
 	is_stripping = false
 	update_click_areas()
+	set_process_input(true)
 
 func update_click_areas():
 	# Show/hide and reposition Area2D nodes based on current strip level
@@ -99,16 +160,16 @@ func update_ui():
 
 func _on_spine_sprite_animation_completed(spine_sprite: Object, animation_state: Object, track_entry: Object) -> void:
 	var anim_name: String = track_entry.get_animation().get_name()
-	print("Animation ended: ", anim_name)  # Debug - keep this for now
+	print("Animation ended: ", anim_name)
 	
 	if anim_name.contains("_stripping"):
 		strip_level += 1
 		
 		if strip_level >= MAX_LEVELS:
-			stripping_finished.emit()
-			
+			# All stripping done, switch to final pose
+			set_mode(Mode.FINAL)
 		else:
-			reset_layer()  # Continue to next stripping layer
+			reset_layer()
 
 
 func _on_spine_sprite_animation_ended(spine_sprite: Object, animation_state: Object, track_entry: Object) -> void:
