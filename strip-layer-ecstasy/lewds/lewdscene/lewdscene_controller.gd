@@ -38,9 +38,11 @@ func _on_animation_completed(spine_sprite: Object, animation_state: Object, trac
 			spine.get_animation_state().set_animation("climax", false, 0)  # false = no loop
 	
 	elif anim_name == "climax":
-		print("Climax finished → Going to ending credits!")
-		await get_tree().create_timer(1.0).timeout   # ← optional: small delay for afterglow / sound fade
-		get_tree().change_scene_to_file("res://UI/ending_credits.tscn")
+		if GameState.is_last_level():
+			get_tree().change_scene_to_file("res://UI/ending_credits.tscn")
+		else:
+			GameState.next_level()
+			get_tree().change_scene_to_file("res://core/flow_controller.tscn")
 
 func _on_animation_event(spine_sprite: Object, animation_state: Object, track_entry: Object, event: Object):
 	# Correct for SpineEvent in official runtime

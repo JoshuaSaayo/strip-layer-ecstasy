@@ -1,5 +1,7 @@
 extends Node2D
 
+signal stripping_finished
+
 @onready var spine: Node2D = $SpineSprite
 @onready var click_spot_top: Area2D = $ClickSpotTop
 @onready var click_spot_bottom: Area2D = $ClickSpotBottom
@@ -103,7 +105,7 @@ func _on_spine_sprite_animation_completed(spine_sprite: Object, animation_state:
 		strip_level += 1
 		
 		if strip_level >= MAX_LEVELS:
-			get_tree().change_scene_to_file("res://lewds/lewdscene/yuri_ls.tscn")  # ← Change this path!
+			stripping_finished.emit()
 			
 		else:
 			reset_layer()  # Continue to next stripping layer

@@ -1,20 +1,20 @@
-extends Node2D
+extends Control
 
-@onready var dim: ColorRect = $Pause/Dim
-@onready var pause: Control = $Pause
+@onready var dim: ColorRect = $CharacterStrip/Pause/Dim
+@onready var pause: Control = $CharacterStrip/Pause
+@onready var character_strip: Node2D = $CharacterStrip
+
+var intro_started := false
 
 func _ready() -> void:
 	pause.visible = false
 	dim.visible = false
+	
+	# Let flow_controller handle the dialogue
+	# Remove any dialogue-related code from here
 
-func _on_pause_button_pressed() -> void:
-	pause.visible = true
-	dim.visible = true
+func _on_intro_dialogue_finished():
+	character_strip.load_stripping_scene()
 
-func _on_resume_btn_pressed() -> void:
-	pause.visible = false
-	dim.visible = false
-
-
-func _on_main_menu_btn_pressed() -> void:
-	get_tree().change_scene_to_file("res://UI/menu.tscn")
+func _on_finish_dialogue_done():
+	get_tree().change_scene_to_file(GameState.get_level()["scenes"]["lewd"])

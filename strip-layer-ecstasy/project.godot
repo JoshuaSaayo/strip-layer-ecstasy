@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="Fleurdelis's Stripping Corp."
-run/main_scene="uid://bxrfm2bgydqcv"
+run/main_scene="uid://cbgkrnpa2ypg8"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="uid://c6g6h5b8yx77a"
+
+[autoload]
+
+GameState="*res://autoload/game_state.gd"
+FlowController="*res://autoload/flow_controller.gd"
 
 [display]
 

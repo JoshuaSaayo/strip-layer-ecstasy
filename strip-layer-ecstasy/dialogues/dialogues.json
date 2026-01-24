@@ -1,0 +1,54 @@
+{
+  "levels": [
+    {
+      "id": 1,
+      "character": "yuri",
+      "scenes": {
+        "stripping": "res://lewds/lewdscene/yuri_strip.tscn",
+        "lewd": "res://lewds/lewdscene/yuri_ls.tscn"
+      },
+      "dialogue": {
+        "intro": [
+          "My fit is so tight",
+          "I feel so hot inside... Would you help me undress me?"
+        ],
+        "finish": [
+          "Sed do eiusmod tempor.",
+          "Incididunt ut labore."
+        ]
+      }
+    },
+    {
+      "id": 2,
+      "character": "mei",
+      "scenes": {
+        "stripping": "res://lewds/lewdscene/mei_strip.tscn",
+        "lewd": "res://lewds/lewdscene/mei_ls.tscn"
+      },
+      "dialogue": {
+        "intro": [
+          "Lorem ipsum level two intro."
+        ],
+        "finish": [
+          "Level two ending dialogue."
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "character": "terra",
+      "scenes": {
+        "stripping": "res://lewds/lewdscene/terra_strip.tscn",
+        "lewd": "res://lewds/lewdscene/terra_ls.tscn"
+      },
+      "dialogue": {
+        "intro": [
+          "Final level intro."
+        ],
+        "finish": [
+          "Final words before climax."
+        ]
+      }
+    }
+  ]
+}

@@ -1,28 +1,14 @@
-[gd_scene load_steps=21 format=3 uid="uid://6nq16miftley"]
+[gd_scene load_steps=22 format=3 uid="uid://6nq16miftley"]
 
-[ext_resource type="PackedScene" uid="uid://d2kmpgdjyrexx" path="res://lewds/lewdscene/yuri_strip.tscn" id="1_kffg0"]
 [ext_resource type="Script" uid="uid://bo7s76rvrg5rc" path="res://main_scene/game.gd" id="1_pq24l"]
+[ext_resource type="Script" uid="uid://dhqdf8me81r4k" path="res://main_scene/character_strip.gd" id="2_mhfeq"]
 [ext_resource type="AudioStream" uid="uid://c6welw77cs7pm" path="res://UI/sounds/background_ost.wav" id="2_swm8w"]
 [ext_resource type="Texture2D" uid="uid://dt81ety56fask" path="res://UI/assets/pause_button.png" id="3_3gp34"]
 [ext_resource type="FontFile" uid="uid://b2lhiurb5m3t1" path="res://UI/fonts/Montserrat-ExtraBold.ttf" id="3_qdf84"]
 [ext_resource type="Texture2D" uid="uid://dvhrexhy8uufa" path="res://UI/assets/pause_button_hover.png" id="4_qdf84"]
 [ext_resource type="Texture2D" uid="uid://c6dbddw3bc1e4" path="res://UI/assets/pause_panel.png" id="7_1plsx"]
 [ext_resource type="FontFile" uid="uid://b7vtyy4qnrm0v" path="res://UI/fonts/Montserrat-Regular.ttf" id="8_boge6"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3gp34"]
-texture = ExtResource("3_3gp34")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qdf84"]
-texture = ExtResource("4_qdf84")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pq24l"]
-texture = ExtResource("4_qdf84")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_srjk2"]
-texture = ExtResource("3_3gp34")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1plsx"]
-texture = ExtResource("3_3gp34")
+[ext_resource type="PackedScene" uid="uid://vyhx0bip7qm0" path="res://UI/dialogue.tscn" id="9_boge6"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mhfeq"]
 texture = ExtResource("7_1plsx")
@@ -48,39 +34,30 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8mafi"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[node name="game" type="Node2D"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3gp34"]
+texture = ExtResource("3_3gp34")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qdf84"]
+texture = ExtResource("4_qdf84")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pq24l"]
+texture = ExtResource("4_qdf84")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_srjk2"]
+texture = ExtResource("3_3gp34")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1plsx"]
+texture = ExtResource("3_3gp34")
+
+[node name="game" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_pq24l")
 
 [node name="CharacterStrip" type="Node2D" parent="."]
+script = ExtResource("2_mhfeq")
 
-[node name="yuri_strip" parent="CharacterStrip" instance=ExtResource("1_kffg0")]
-position = Vector2(5, -3)
-
-[node name="Background" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_swm8w")
-autoplay = true
-
-[node name="PauseButton" type="Button" parent="."]
-offset_left = 1200.0
-offset_top = 30.0
-offset_right = 1250.0
-offset_bottom = 80.0
-theme_override_colors/font_color = Color(0.9098039, 0.87058824, 0.99607843, 1)
-theme_override_colors/font_focus_color = Color(0.9098039, 0.87058824, 1, 1)
-theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
-theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/font_disabled_color = Color(0.9098039, 0.87058824, 1, 1)
-theme_override_fonts/font = ExtResource("3_qdf84")
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxTexture_3gp34")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_qdf84")
-theme_override_styles/hover = SubResource("StyleBoxTexture_pq24l")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_srjk2")
-theme_override_styles/focus = SubResource("StyleBoxTexture_1plsx")
-text = "X"
-
-[node name="Pause" type="Control" parent="."]
+[node name="Pause" type="Control" parent="CharacterStrip"]
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -91,7 +68,7 @@ offset_bottom = 720.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Dim" type="ColorRect" parent="Pause"]
+[node name="Dim" type="ColorRect" parent="CharacterStrip/Pause"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -100,7 +77,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.3529412)
 
-[node name="PausePanel" type="Panel" parent="Pause"]
+[node name="PausePanel" type="Panel" parent="CharacterStrip/Pause"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -115,7 +92,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_mhfeq")
 
-[node name="QuitLabel" type="Label" parent="Pause/PausePanel"]
+[node name="QuitLabel" type="Label" parent="CharacterStrip/Pause/PausePanel"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -128,7 +105,7 @@ grow_horizontal = 2
 text = "PAUSE"
 label_settings = SubResource("LabelSettings_c3jnc")
 
-[node name="ResumeBtn" type="Button" parent="Pause/PausePanel"]
+[node name="ResumeBtn" type="Button" parent="CharacterStrip/Pause/PausePanel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -158,7 +135,7 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_f0gd0")
 theme_override_styles/focus = SubResource("StyleBoxFlat_8mafi")
 text = "Resume"
 
-[node name="MainMenuBtn" type="Button" parent="Pause/PausePanel"]
+[node name="MainMenuBtn" type="Button" parent="CharacterStrip/Pause/PausePanel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -188,6 +165,33 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_f0gd0")
 theme_override_styles/focus = SubResource("StyleBoxFlat_8mafi")
 text = "Main Menu"
 
+[node name="dialogue" parent="CharacterStrip" instance=ExtResource("9_boge6")]
+
+[node name="Background" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_swm8w")
+autoplay = true
+
+[node name="PauseButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1200.0
+offset_top = 30.0
+offset_right = 1250.0
+offset_bottom = 80.0
+theme_override_colors/font_color = Color(0.9098039, 0.87058824, 0.99607843, 1)
+theme_override_colors/font_focus_color = Color(0.9098039, 0.87058824, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(0.9098039, 0.87058824, 1, 1)
+theme_override_fonts/font = ExtResource("3_qdf84")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_3gp34")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_qdf84")
+theme_override_styles/hover = SubResource("StyleBoxTexture_pq24l")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_srjk2")
+theme_override_styles/focus = SubResource("StyleBoxTexture_1plsx")
+text = "X"
+
+[connection signal="pressed" from="CharacterStrip/Pause/PausePanel/ResumeBtn" to="." method="_on_resume_btn_pressed"]
+[connection signal="pressed" from="CharacterStrip/Pause/PausePanel/MainMenuBtn" to="." method="_on_main_menu_btn_pressed"]
 [connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]
-[connection signal="pressed" from="Pause/PausePanel/ResumeBtn" to="." method="_on_resume_btn_pressed"]
-[connection signal="pressed" from="Pause/PausePanel/MainMenuBtn" to="." method="_on_main_menu_btn_pressed"]

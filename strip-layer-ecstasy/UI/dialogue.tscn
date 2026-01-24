@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://vyhx0bip7qm0"]
+
+[ext_resource type="Script" uid="uid://dswooaaidp42l" path="res://UI/dialogue.gd" id="1_f8kjv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f8kjv"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_347mh"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6k0i6"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m5l3s"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7v0fb"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="dialogue" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f8kjv")
+
+[node name="Next" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_f8kjv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_347mh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6k0i6")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_m5l3s")
+theme_override_styles/focus = SubResource("StyleBoxFlat_7v0fb")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 288.0
+offset_top = 213.0
+offset_right = 496.0
+offset_bottom = 313.0
+
+[node name="DialogueText" type="Label" parent="Panel"]
+layout_mode = 0
+offset_right = 207.0
+offset_bottom = 100.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+autowrap_mode = 2
+
+[connection signal="pressed" from="Next" to="." method="_on_next_pressed"]
