@@ -25,3 +25,4 @@ stream = ExtResource("2_2txrj")
 [node name="SFXPlaps" type="AudioStreamPlayer" parent="SFX"]
 
 [node name="SFXCum" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("2_2txrj")
