@@ -32,17 +32,19 @@ func _on_animation_completed(spine_sprite: Object, animation_state: Object, trac
 	if anim_name == "lewdscene":
 		loops_done += 1
 		print("Lewd loop completed: ", loops_done, "/", LOOP_COUNT)
-		
 		if loops_done >= LOOP_COUNT:
 			print("All loops done → Starting climax!")
-			spine.get_animation_state().set_animation("climax", false, 0)  # false = no loop
+			spine.get_animation_state().set_animation("climax", false, 0)
 	
 	elif anim_name == "climax":
+		print("Climax finished!")
 		if GameState.is_last_level():
+			print("Last level → Ending credits")
 			get_tree().change_scene_to_file("res://UI/ending_credits.tscn")
 		else:
-			GameState.next_level()
-			get_tree().change_scene_to_file("res://core/flow_controller.tscn")
+			print("Advancing to next level → Restarting flow")
+			GameState.next_level()           # Moves to Mei, Terra, etc.
+			FlowController.start_game()          # ← Restart the full flow for new level
 
 func _on_animation_event(spine_sprite: Object, animation_state: Object, track_entry: Object, event: Object):
 	# Correct for SpineEvent in official runtime

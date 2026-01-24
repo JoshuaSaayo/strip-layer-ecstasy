@@ -160,6 +160,7 @@ theme_override_styles/focus = SubResource("StyleBoxTexture_uh2ao")
 text = "PROCEED"
 
 [node name="TransitionRect" type="ColorRect" parent="."]
+visible = false
 z_index = 100
 layout_mode = 1
 anchors_preset = 15

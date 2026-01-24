@@ -1,6 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://vyhx0bip7qm0"]
+[gd_scene load_steps=11 format=3 uid="uid://vyhx0bip7qm0"]
 
 [ext_resource type="Script" uid="uid://dswooaaidp42l" path="res://UI/dialogue.gd" id="1_f8kjv"]
+[ext_resource type="Texture2D" uid="uid://c6dbddw3bc1e4" path="res://UI/assets/pause_panel.png" id="2_6k0i6"]
+[ext_resource type="FontFile" uid="uid://b7vtyy4qnrm0v" path="res://UI/fonts/Montserrat-Regular.ttf" id="3_m5l3s"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7v0fb"]
+texture = ExtResource("2_6k0i6")
+
+[sub_resource type="LabelSettings" id="LabelSettings_6k0i6"]
+font = ExtResource("3_m5l3s")
+font_size = 25
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.27058825)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f8kjv"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -28,16 +39,25 @@ script = ExtResource("1_f8kjv")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
-offset_left = 288.0
-offset_top = 213.0
-offset_right = 496.0
-offset_bottom = 313.0
+offset_left = 42.0
+offset_top = 45.0
+offset_right = 561.0
+offset_bottom = 318.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_7v0fb")
 
 [node name="DialogueText" type="Label" parent="Panel"]
-layout_mode = 0
-offset_right = 207.0
-offset_bottom = 100.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 23.0
+offset_top = 22.0
+offset_right = -21.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "LOREM"
+label_settings = SubResource("LabelSettings_6k0i6")
 autowrap_mode = 2
 
 [node name="Next" type="Button" parent="."]
@@ -45,6 +65,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = -5.0
+offset_right = 12.0
+offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_f8kjv")
