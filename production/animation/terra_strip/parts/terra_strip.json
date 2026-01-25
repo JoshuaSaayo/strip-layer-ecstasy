@@ -1,0 +1,137 @@
+{ "skeleton": { "images": "C:/Users/Joshua PC/OneDrive/Desktop/parts/" },
+"PhotoshopToSpine": { "scale": 1, "padding": 1, "trim": true },
+"bones": [
+	{ "name": "root" }
+],
+"slots": [
+	{ "name": "BG", "bone": "root", "attachment": "BG" },
+	{ "name": "Folder44", "bone": "root", "attachment": "Folder44" },
+	{ "name": "back_hair", "bone": "root", "attachment": "back_hair" },
+	{ "name": "r_shoulder", "bone": "root", "attachment": "r_shoulder" },
+	{ "name": "r_arm", "bone": "root", "attachment": "r_arm" },
+	{ "name": "r_hand", "bone": "root", "attachment": "r_hand" },
+	{ "name": "r_sleeve", "bone": "root", "attachment": "r_sleeve" },
+	{ "name": "torso", "bone": "root", "attachment": "torso" },
+	{ "name": "r_thigh", "bone": "root", "attachment": "r_thigh" },
+	{ "name": "vagina", "bone": "root", "attachment": "vagina" },
+	{ "name": "panty", "bone": "root", "attachment": "panty" },
+	{ "name": "l_thigh", "bone": "root", "attachment": "l_thigh" },
+	{ "name": "head", "bone": "root", "attachment": "head" },
+	{ "name": "l_earring", "bone": "root", "attachment": "l_earring" },
+	{ "name": "r_earring", "bone": "root", "attachment": "r_earring" },
+	{ "name": "l_boob", "bone": "root", "attachment": "l_boob" },
+	{ "name": "r_boob", "bone": "root", "attachment": "r_boob" },
+	{ "name": "l_arm", "bone": "root", "attachment": "l_arm" },
+	{ "name": "l_sleeve_back", "bone": "root", "attachment": "l_sleeve_back" },
+	{ "name": "l_hand", "bone": "root", "attachment": "l_hand" },
+	{ "name": "l_shoulder", "bone": "root", "attachment": "l_shoulder" },
+	{ "name": "pants", "bone": "root", "attachment": "pants" },
+	{ "name": "bra", "bone": "root", "attachment": "bra" },
+	{ "name": "polo_r", "bone": "root", "attachment": "polo_r" },
+	{ "name": "polo_l", "bone": "root", "attachment": "polo_l" },
+	{ "name": "l_sleeve", "bone": "root", "attachment": "l_sleeve" },
+	{ "name": "mouth", "bone": "root", "attachment": "mouth" },
+	{ "name": "eyes", "bone": "root", "attachment": "eyes" },
+	{ "name": "eyebrows", "bone": "root", "attachment": "eyebrows" },
+	{ "name": "bangs", "bone": "root", "attachment": "bangs" },
+	{ "name": "headband", "bone": "root", "attachment": "headband" }
+],
+"skins": {
+	"default": {
+		"BG": {
+			"BG": { "x": 640, "y": -360, "width": 1282, "height": 722 }
+		},
+		"Folder44": {
+			"Folder44": { "x": 640, "y": -360, "width": 1282, "height": 722 }
+		},
+		"back_hair": {
+			"back_hair": { "x": 629, "y": -226, "width": 496, "height": 446 }
+		},
+		"r_shoulder": {
+			"r_shoulder": { "x": 740, "y": -351, "width": 80, "height": 224 }
+		},
+		"r_arm": {
+			"r_arm": { "x": 755.5, "y": -510, "width": 107, "height": 234 }
+		},
+		"r_hand": {
+			"r_hand": { "x": 766.5, "y": -630, "width": 73, "height": 116 }
+		},
+		"r_sleeve": {
+			"r_sleeve": { "x": 765, "y": -436, "width": 94, "height": 356 }
+		},
+		"torso": {
+			"torso": { "x": 645.5, "y": -382.5, "width": 289, "height": 505 }
+		},
+		"r_thigh": {
+			"r_thigh": { "x": 692, "y": -615.5, "width": 164, "height": 211 }
+		},
+		"vagina": {
+			"vagina": { "x": 653.5, "y": -632, "width": 445, "height": 178 }
+		},
+		"panty": {
+			"panty": { "x": 636.5, "y": -535, "width": 255, "height": 172 }
+		},
+		"l_thigh": {
+			"l_thigh": { "x": 530, "y": -581.5, "width": 190, "height": 279 }
+		},
+		"head": {
+			"head": { "x": 651.5, "y": -106.5, "width": 259, "height": 161 }
+		},
+		"l_earring": {
+			"l_earring": { "x": 572, "y": -166, "width": 32, "height": 54 }
+		},
+		"r_earring": {
+			"r_earring": { "x": 773, "y": -124, "width": 32, "height": 54 }
+		},
+		"l_boob": {
+			"l_boob": { "x": 612, "y": -296, "width": 162, "height": 132 }
+		},
+		"r_boob": {
+			"r_boob": { "x": 713.5, "y": -316, "width": 117, "height": 118 }
+		},
+		"l_arm": {
+			"l_arm": { "x": 488, "y": -464.5, "width": 104, "height": 227 }
+		},
+		"l_sleeve_back": {
+			"l_sleeve_back": { "x": 453.5, "y": -542, "width": 63, "height": 38 }
+		},
+		"l_hand": {
+			"l_hand": { "x": 446.5, "y": -580.5, "width": 67, "height": 151 }
+		},
+		"l_shoulder": {
+			"l_shoulder": { "x": 521.5, "y": -388.5, "width": 179, "height": 427 }
+		},
+		"pants": {
+			"pants": { "x": 620.5, "y": -548.5, "width": 347, "height": 345 }
+		},
+		"bra": {
+			"bra": { "x": 664.5, "y": -295.5, "width": 225, "height": 199 }
+		},
+		"polo_r": {
+			"polo_r": { "x": 709.5, "y": -333.5, "width": 175, "height": 311 }
+		},
+		"polo_l": {
+			"polo_l": { "x": 611, "y": -304.5, "width": 170, "height": 275 }
+		},
+		"l_sleeve": {
+			"l_sleeve": { "x": 516.5, "y": -377, "width": 199, "height": 382 }
+		},
+		"mouth": {
+			"mouth": { "x": 655, "y": -152.5, "width": 32, "height": 11 }
+		},
+		"eyes": {
+			"eyes": { "x": 646.5, "y": -117.5, "width": 115, "height": 47 }
+		},
+		"eyebrows": {
+			"eyebrows": { "x": 639.5, "y": -96, "width": 99, "height": 20 }
+		},
+		"bangs": {
+			"bangs": { "x": 659, "y": -111, "width": 198, "height": 208 }
+		},
+		"headband": {
+			"headband": { "x": 646.5, "y": -37.5, "width": 173, "height": 77 }
+		}
+	}
+},
+"animations": { "animation": {} }
+}
