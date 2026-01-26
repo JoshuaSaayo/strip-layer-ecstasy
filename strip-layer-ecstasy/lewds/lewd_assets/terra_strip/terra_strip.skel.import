@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://srjk0oamr6tg"
+path="res://.godot/imported/terra_strip.skel-91b26f98b428b1747da51a4141c57c2f.spskel"
+
+[deps]
+
+source_file="res://lewds/lewd_assets/terra_strip/terra_strip.skel"
+dest_files=["res://.godot/imported/terra_strip.skel-91b26f98b428b1747da51a4141c57c2f.spskel"]
+
+[params]
+
