@@ -41,7 +41,7 @@ shape = SubResource("RectangleShape2D_2i26p")
 position = Vector2(592, 475)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ClickSpotBottom"]
-position = Vector2(56, 65)
+position = Vector2(59, 146)
 shape = SubResource("RectangleShape2D_2i26p")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
