@@ -1,0 +1,8 @@
+[gd_resource type="SpineSkeletonDataResource" load_steps=3 format=3 uid="uid://c521ys6nthn6c"]
+
+[ext_resource type="SpineAtlasResource" uid="uid://dntqwo62fqnmm" path="res://lewds/lewd_assets/terra_ls/terra_ls.atlas" id="1_flgw0"]
+[ext_resource type="SpineSkeletonFileResource" uid="uid://bgooid5xe4tv8" path="res://lewds/lewd_assets/terra_ls/terra_ls.skel" id="2_ur882"]
+
+[resource]
+atlas_res = ExtResource("1_flgw0")
+skeleton_file_res = ExtResource("2_ur882")

@@ -39,10 +39,10 @@ script = ExtResource("1_f8kjv")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
-offset_left = 42.0
+offset_left = 89.0
 offset_top = 45.0
 offset_right = 561.0
-offset_bottom = 318.0
+offset_bottom = 223.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_7v0fb")
 
 [node name="DialogueText" type="Label" parent="Panel"]

@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://dntqwo62fqnmm"
+path="res://.godot/imported/terra_ls.atlas-3fdbc74d7aa4840fccf72451d5d75a64.spatlas"
+
+[deps]
+
+source_file="res://lewds/lewd_assets/terra_ls/terra_ls.atlas"
+dest_files=["res://.godot/imported/terra_ls.atlas-3fdbc74d7aa4840fccf72451d5d75a64.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

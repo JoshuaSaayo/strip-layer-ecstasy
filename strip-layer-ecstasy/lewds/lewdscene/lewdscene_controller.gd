@@ -16,8 +16,12 @@ var character_moans: Dictionary = {
 		preload("res://lewds/lewd_assets/mei_ls/sounds/mei_moan1.wav"),  # ← Your 3 new Mei moans here
 		preload("res://lewds/lewd_assets/mei_ls/sounds/mei_moan2.wav"),
 		preload("res://lewds/lewd_assets/mei_ls/sounds/mei_moan3.wav")
+	],
+	"terra": [
+		preload("res://lewds/lewd_assets/terra_ls/sounds/terra_moan1.wav"),  # ← Your 3 new Mei moans here
+		preload("res://lewds/lewd_assets/terra_ls/sounds/terra_moan2.wav"),
+		preload("res://lewds/lewd_assets/terra_ls/sounds/terra_moan3.wav")
 	]
-	# "terra": [ ... ]  ← Add later
 }
 
 @export var character: String = "yuri"  # ← Set in Inspector for each scene (yuri_ls.tscn = "yuri", mei_ls.tscn = "mei")
@@ -98,3 +102,7 @@ func _exit_tree():
 		spine.animation_completed.disconnect(_on_animation_completed)
 	if spine.animation_event.is_connected(_on_animation_event):
 		spine.animation_event.disconnect(_on_animation_event)
+
+
+func _on_spine_sprite_animation_completed(spine_sprite: Object, animation_state: Object, track_entry: Object) -> void:
+	pass # Replace with function body.

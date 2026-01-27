@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://s5lnrbc4qygd"]
+
+[ext_resource type="Script" uid="uid://blrbda8l3lgq2" path="res://lewds/lewdscene/lewdscene_controller.gd" id="1_dyjye"]
+[ext_resource type="SpineSkeletonDataResource" uid="uid://c521ys6nthn6c" path="res://lewds/lewd_assets/terra_ls/terra_ls.tres" id="1_v4kys"]
+[ext_resource type="AudioStream" uid="uid://dng0de0gd06hc" path="res://lewds/lewd_assets/mei_ls/sounds/mei_moan1.wav" id="2_ur1yr"]
+[ext_resource type="AudioStream" uid="uid://b4oioe1rln0s3" path="res://lewds/lewd_assets/yuri_ls/sounds/plaps1.wav" id="4_5venf"]
+
+[node name="terra_ls" type="Node2D"]
+script = ExtResource("1_dyjye")
+character = "terra"
+
+[node name="SpineSprite" type="SpineSprite" parent="."]
+skeleton_data_res = ExtResource("1_v4kys")
+preview_skin = "Default"
+preview_animation = "-- Empty --"
+preview_frame = false
+preview_time = 0.0
+
+[node name="SFX" type="Node" parent="."]
+
+[node name="SFXMoan" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("2_ur1yr")
+
+[node name="SFXPlaps" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("4_5venf")
+
+[node name="SFXCum" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("2_ur1yr")
+
+[connection signal="animation_completed" from="SpineSprite" to="." method="_on_spine_sprite_animation_completed"]

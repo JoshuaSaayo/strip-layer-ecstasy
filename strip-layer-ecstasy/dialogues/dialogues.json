@@ -55,10 +55,20 @@
       },
       "dialogue": {
         "intro": [
-          "Final level intro."
+          "Hey there, have you seen madam Fleurdelis?",
+          "Hmm? She wants me to get stripped by you? How embarrassing!",
+          "I'm not stressed here, I don't need such lewd just to stress reliever!",
+          "...",
+          "...Just for a little bit okay.",
+          "I've been dealing with tough headache... Maybe I actually am this stressed.",
         ],
         "finish": [
-          "Final words before climax."
+          "Huh? How did I let you make me fully naked?",
+          "Fuck, I think some people saw us here. Hey put my clothes back!",
+          "...",
+          "...I am getting wet now. Being naked is actually relieving my stress…",
+          "Huh? You wanna fuck me? Are you insane?!",
+          "Okay fine, I feel a little stress, maybe your dick can cure me... find me a better spot, boy.",
         ]
       }
     }
