@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://cbgkrnpa2ypg8"]
+[gd_scene load_steps=40 format=3 uid="uid://cbgkrnpa2ypg8"]
 
 [ext_resource type="Script" uid="uid://cu8jiq8jr42pf" path="res://UI/menu.gd" id="1_kfjwn"]
 [ext_resource type="FontFile" uid="uid://b7vtyy4qnrm0v" path="res://UI/fonts/Montserrat-Regular.ttf" id="2_e05sn"]
@@ -34,6 +34,45 @@ font_size = 20
 shadow_size = 5
 shadow_color = Color(0, 0, 0, 0.27058825)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e3ygf"]
+texture = ExtResource("7_dte3n")
+
+[sub_resource type="LabelSettings" id="LabelSettings_yecwb"]
+font = ExtResource("8_dhncy")
+font_size = 30
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yecwb"]
+texture = ExtResource("3_kfjwn")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qoksu"]
+texture = ExtResource("4_dte3n")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gkf6b"]
+texture = ExtResource("4_dte3n")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cbyaf"]
+texture = ExtResource("3_kfjwn")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5ccw6"]
+texture = ExtResource("3_kfjwn")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_22gd7"]
+texture = ExtResource("9_re817")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_60j7a"]
+texture = ExtResource("10_1qvof")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k0tp0"]
+texture = ExtResource("10_1qvof")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xbecv"]
+texture = ExtResource("9_re817")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_emkvv"]
+texture = ExtResource("9_re817")
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l308b"]
 texture = ExtResource("7_1qvof")
 
@@ -60,21 +99,6 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vso1l"]
 texture = ExtResource("7_dte3n")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_22gd7"]
-texture = ExtResource("9_re817")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_60j7a"]
-texture = ExtResource("10_1qvof")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k0tp0"]
-texture = ExtResource("10_1qvof")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xbecv"]
-texture = ExtResource("9_re817")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_emkvv"]
-texture = ExtResource("9_re817")
 
 [sub_resource type="LabelSettings" id="LabelSettings_cvc1e"]
 font = ExtResource("8_dhncy")
@@ -306,7 +330,7 @@ offset_top = -47.0
 offset_right = 243.0
 offset_bottom = -21.0
 grow_vertical = 0
-text = "v1.0 beta"
+text = "v1.0"
 label_settings = SubResource("LabelSettings_kfjwn")
 
 [node name="Dim" type="ColorRect" parent="."]
@@ -318,6 +342,162 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.3529412)
+
+[node name="Settings" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AudioPanel" type="Panel" parent="Settings"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -586.0
+offset_top = -324.0
+offset_right = 335.0
+offset_bottom = 338.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_e3ygf")
+
+[node name="AudioLabel" type="Label" parent="Settings/AudioPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -61.5
+offset_top = 20.0
+offset_right = 45.5
+offset_bottom = 58.0
+grow_horizontal = 2
+text = "AUDIO"
+label_settings = SubResource("LabelSettings_yecwb")
+
+[node name="DisplayPanel" type="Panel" parent="Settings"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -586.0
+offset_top = -324.0
+offset_right = 335.0
+offset_bottom = 338.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_e3ygf")
+
+[node name="DisplayLabel" type="Label" parent="Settings/DisplayPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -76.5
+offset_top = 19.0
+offset_right = 60.5
+offset_bottom = 57.0
+grow_horizontal = 2
+text = "DISPLAY"
+label_settings = SubResource("LabelSettings_yecwb")
+
+[node name="AudioBtn" type="Button" parent="Settings"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 359.00012
+offset_top = -241.00006
+offset_right = 543.2953
+offset_bottom = -195.62216
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.47649, 1.47649)
+theme_override_colors/font_color = Color(0.9098039, 0.87058824, 1, 1)
+theme_override_colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(0.9098039, 0.87058824, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("2_e05sn")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxTexture_yecwb")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_qoksu")
+theme_override_styles/hover = SubResource("StyleBoxTexture_gkf6b")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_cbyaf")
+theme_override_styles/focus = SubResource("StyleBoxTexture_5ccw6")
+text = "AUDIO"
+
+[node name="DisplayBtn" type="Button" parent="Settings"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 358.99997
+offset_top = -148.99997
+offset_right = 543.29517
+offset_bottom = -103.62207
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.47649, 1.47649)
+theme_override_colors/font_color = Color(0.9098039, 0.87058824, 1, 1)
+theme_override_colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(0.9098039, 0.87058824, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("2_e05sn")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxTexture_yecwb")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_qoksu")
+theme_override_styles/hover = SubResource("StyleBoxTexture_gkf6b")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_cbyaf")
+theme_override_styles/focus = SubResource("StyleBoxTexture_5ccw6")
+text = "DISPLAY"
+
+[node name="PauseButton" type="Button" parent="Settings"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 558.0
+offset_top = -300.0
+offset_right = 608.0
+offset_bottom = -250.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0.9098039, 0.87058824, 0.99607843, 1)
+theme_override_colors/font_focus_color = Color(0.9098039, 0.87058824, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(0.9098039, 0.87058824, 1, 1)
+theme_override_fonts/font = ExtResource("8_dhncy")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_22gd7")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_60j7a")
+theme_override_styles/hover = SubResource("StyleBoxTexture_k0tp0")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_xbecv")
+theme_override_styles/focus = SubResource("StyleBoxTexture_emkvv")
+text = "X"
 
 [node name="Quit" type="Control" parent="."]
 visible = false

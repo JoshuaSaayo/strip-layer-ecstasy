@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://rpk4xt2f2qjp"]
+[gd_scene load_steps=9 format=3 uid="uid://rpk4xt2f2qjp"]
 
-[ext_resource type="Texture2D" uid="uid://bop6ua8in3swo" path="res://UI/assets/main_menu.png" id="1_cpqwh"]
 [ext_resource type="Script" uid="uid://cd4pk1woevddr" path="res://UI/ending_credits.gd" id="1_liubm"]
+[ext_resource type="PackedScene" uid="uid://cgyk4kfjvvqmh" path="res://lewds/lewdscene/main_menu.tscn" id="2_liubm"]
 [ext_resource type="FontFile" uid="uid://b2lhiurb5m3t1" path="res://UI/fonts/Montserrat-ExtraBold.ttf" id="2_wgxa4"]
 [ext_resource type="FontFile" uid="uid://b7vtyy4qnrm0v" path="res://UI/fonts/Montserrat-Regular.ttf" id="3_liubm"]
+[ext_resource type="AudioStream" uid="uid://ca230bnj23oal" path="res://UI/sounds/menu_ost.wav" id="5_fou0f"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_wgxa4"]
 font = ExtResource("2_wgxa4")
@@ -33,9 +34,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_liubm")
 
-[node name="MainMenu" type="Sprite2D" parent="."]
-position = Vector2(640, 360)
-texture = ExtResource("1_cpqwh")
+[node name="main_menu" parent="." instance=ExtResource("2_liubm")]
 
 [node name="Dim" type="ColorRect" parent="."]
 layout_mode = 1
@@ -153,3 +152,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Background2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_fou0f")
+autoplay = true

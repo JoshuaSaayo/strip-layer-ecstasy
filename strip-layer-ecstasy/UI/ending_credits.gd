@@ -4,11 +4,15 @@ extends Control
 @onready var end_credits: Control = $EndCredits
 @onready var sound_resources: Control = $SoundResources
 @onready var fade_rect: ColorRect = $FadeRect
+@onready var main_menu: Node2D = $main_menu
 
 enum State { END_CREDITS, SOUND_CREDITS, DONE }
 var current_state: State = State.END_CREDITS
 
+
+
 func _ready():
+	play_menu_animation()
 	end_credits.visible = true
 	sound_resources.visible = false
 	fade_rect.modulate.a = 0
@@ -20,6 +24,9 @@ func _ready():
 	timer.timeout.connect(_on_timer_timeout)
 	
 	timer.start()
+
+func play_menu_animation():
+	main_menu.get_animation_state().set_animation("animation", true, 0)
 
 func _on_timer_timeout():
 	match current_state:
